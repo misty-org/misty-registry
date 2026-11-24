@@ -146,7 +146,7 @@ People's computers never call GitHub's API for the registry; only `refresh.yml` 
 
 ### The signing key
 
-Made once with `npm run keygen -- ~/.config/misty-registry/misty-registry.pem`. The private key never enters this repository: it
+Made once with `npm run keygen -- ~/.misty/.env/misty-registry.pem`. The private key never enters this repository: it
 lives in the `REGISTRY_SIGNING_KEY` secret (and `REGISTRY_KEY_ID` as a variable when it isn't `misty-registry`). The
 public key it prints goes into Misty's `REGISTRY_KEYS` (`src-tauri/features/registry/mod.rs`). To rotate, add the new
 public key to Misty first, ship that release, then switch the secret.
