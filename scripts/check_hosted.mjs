@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { BUILDS_ORIGIN } from "./lib.mjs";
 
 const root = new URL("../", import.meta.url);
-const pins = JSON.parse(readFileSync(new URL("apps.json", root), "utf8")).apps.filter((app) => app.built);
+const pins = JSON.parse(readFileSync(new URL("apps.json", root), "utf8")).apps.filter((app) => app.built || app.source);
 let bad = false;
 for (const pin of pins) {
   if (!pin.url.startsWith(BUILDS_ORIGIN)) {

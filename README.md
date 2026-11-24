@@ -5,10 +5,12 @@ of two things, never a pasted address:
 
 - **An open-source web build:** a maker's own release, which a Space mod adds by pasting its GitHub repository's
   link (or from Explore once it is listed here). Each entry names the maker's own repository, the version it is
-  pinned to, the address of the maker's own release zip (or `.war`), the checksum GitHub reports for it, and the
-  maker's own icon. Misty downloads it itself when a Space first opens the app, checks it against the pinned
-  checksum, and adds a small wrapper around it (`manifest`, `add_copies`, `strip_top`); the maker's files are not
-  changed or kept here.
+  pinned to, the address of the maker's own release zip (or `.war`) as `source`, the checksum GitHub reports for it,
+  and the maker's own icon. The registry keeps an unchanged copy of that zip beside its own builds, at
+  `registry.mistysys.com/apps/<id>-<version>-<first 12 of the checksum>.zip` (the entry's `url`), so every app comes
+  from one place. Misty downloads it when a Space first opens the app, checks it against the pinned checksum (the
+  maker's own, so the copy can't differ from the release), and adds a small wrapper around it (`manifest`,
+  `add_copies`, `strip_top`); the maker's files are not changed.
 - **A web build the registry makes** (`build: true`): for an MIT or Apache-2.0 app whose maker publishes no web
   build, a recipe here builds it from one pinned upstream commit, and the registry hosts the zip it makes at
   `registry.mistysys.com/apps/`, pinned by its checksum like any other. A zip is uploaded once and never
@@ -19,8 +21,9 @@ of two things, never a pasted address:
   come only from registered developers. Explore stays a store: a website that isn't an app is for the person's own
   browser, or an agent's.
 
-**The repository holds no app and no binary.** The only files the registry hosts are the zips it builds, served
-beside the signed registry, never committed.
+**The repository holds no app and no binary.** The registry hosts every app's zip, the ones it builds and an
+unchanged copy of each maker's release, served beside the signed registry and never committed. A program an app's MCP
+server runs (`mcp_program`) is still the maker's own release asset, downloaded from the maker.
 
 - `apps/<id>.json`: what we say about an app: its name, the maker's repository, which release asset is its web build,
   where its icon is and, optionally, how it renders (`icon_render`: `color` as drawn, the default; `theme` for a
@@ -38,7 +41,10 @@ beside the signed registry, never committed.
   checksum; the zip keeps the upstream's `LICENSE`, and `NOTICE` credits it.
 - `.github/workflows/publish.yml`: on every push to `main`, once the checks pass, builds each recipe whose zip
   isn't in the bucket yet and uploads it (`scripts/ship_builds.mjs`), pins the hosted zips and commits the pins,
-  then signs `registry.jws.json` and uploads it beside them. Nobody uploads a zip by hand.
+  then signs `registry.jws.json` and uploads it beside them. Before that it copies each maker's release zip that
+  isn't in the bucket yet (`scripts/ship_mirrors.mjs`): it downloads the pin's `source`, keeps it only if it is the
+  file the pin's checksum names, and uploads it once under a name made of that checksum, never replaced. Nobody
+  uploads a zip by hand.
 - Adapters (`adapters/*.js`, `apps/<id>/*.js`, `builds/<id>/adapter.js`) are never copied into the registry. An entry
   names each by its checksum, `{ url, sha256, size }` at `registry.mistysys.com/files/<sha256>.js`; publish uploads
   them (`scripts/ship_files.mjs`), and Misty fetches one when it installs the app or opens the site, checks it and

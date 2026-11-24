@@ -12,6 +12,7 @@
     "publish:sign": "node scripts/publish.mjs",
     "keygen": "node scripts/keygen.mjs",
     "build:apps": "node scripts/build_apps.mjs",
-    "ship:apps": "node scripts/ship_builds.mjs"
+    "ship:apps": "node scripts/ship_builds.mjs",
+    "ship:mirrors": "node scripts/ship_mirrors.mjs"
   }
 }

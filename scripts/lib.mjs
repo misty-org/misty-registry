@@ -144,6 +144,12 @@ function siteProblems(app) {
 /** Problems with one registry entry, as sentences. An empty list means it is fit to ship. */
 export const BUILDS_ORIGIN = "https://registry.mistysys.com/apps/";
 
+/**
+ * The name a maker's release is mirrored under in the bucket: the app, its version and the start of its checksum, so a
+ * zip is uploaded once and never replaced.
+ */
+export const mirrorName = (id, version, sha256) => `${id}-${version}-${String(sha256).slice(0, 12)}.zip`;
+
 export function entryProblems(app, { local = false } = {}) {
   if (app?.kind === "site") return siteProblems(app);
   const problems = [];
@@ -160,7 +166,8 @@ export function entryProblems(app, { local = false } = {}) {
   need(LICENSES.has(app?.license), `license ${JSON.stringify(app?.license)} isn't one Misty may carry`);
   need(typeof app?.version === "string" && VERSION.test(app.version), "version must be one folder name");
   need(typeof app?.tag === "string" && VERSION.test(app.tag), "tag must be the release's tag");
-  // The bundle is the maker's own release, never a copy hosted here.
+  // Every bundle is served from the registry's own address. A built app is the zip the registry made; any other is a
+  // mirror of the maker's own release, whose address (`source`) is kept so the copy can be checked against it.
   if (app?.built) {
     need(/^[0-9a-f]{40}$/.test(app?.commit ?? ""), "a built app names the upstream commit it was built from");
     need(app?.license === "MIT" || app?.license === "Apache-2.0", "a built app is MIT or Apache-2.0");
@@ -172,10 +179,14 @@ export function entryProblems(app, { local = false } = {}) {
     );
   } else {
     need(
-      typeof app?.url === "string" &&
-        app.url.startsWith(`https://github.com/${upstream}/releases/download/`) &&
-        (app.url.endsWith(".zip") || app.url.endsWith(".war")),
-      "url must be the maker's own release asset",
+      typeof app?.source === "string" &&
+        app.source.startsWith(`https://github.com/${upstream}/releases/download/`) &&
+        (app.source.endsWith(".zip") || app.source.endsWith(".war")),
+      "source must be the maker's own release asset",
+    );
+    need(
+      typeof app?.url === "string" && app.url === `${BUILDS_ORIGIN}${mirrorName(app?.id, app?.version, app?.sha256)}`,
+      "url must be the mirror of the maker's release on the registry's own address, named by its checksum",
     );
   }
   need(typeof app?.sha256 === "string" && SHA256.test(app.sha256), "sha256 must be 64 lowercase hex digits");

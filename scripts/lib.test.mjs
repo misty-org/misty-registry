@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { entryProblems } from "./lib.mjs";
+import { entryProblems, mirrorName } from "./lib.mjs";
 
 const good = {
   id: "photocraft", name: "PhotoCraft", description: "Open-source image editor", maker: "storytold",
   upstream: "storytold/photocraft", license: "MIT OR Apache-2.0", version: "0.23.1", tag: "v0.23.1",
-  url: "https://github.com/storytold/photocraft/releases/download/v0.23.1/photocraft-web-0.23.1.zip",
+  source: "https://github.com/storytold/photocraft/releases/download/v0.23.1/photocraft-web-0.23.1.zip",
+  url: `https://registry.mistysys.com/apps/${mirrorName("photocraft", "0.23.1", "a".repeat(64))}`,
   sha256: "a".repeat(64), size: 16064050,
   logo: "https://raw.githubusercontent.com/storytold/photocraft/v0.23.1/assets/icon.png",
   permissions: ["files"],
@@ -20,9 +21,11 @@ test("an entry that could not be trusted is refused", () => {
     { ...good, id: "Photo Craft" },
     { ...good, license: "Proprietary" },
     { ...good, version: "../x" },
-    { ...good, url: "http://github.com/storytold/photocraft/releases/download/v1/a.zip" },
-    // A bundle hosted anywhere but the maker's own release, such as a copy kept here.
-    { ...good, url: "https://github.com/misty-org/misty-apps/releases/download/v1/a.zip" },
+    { ...good, url: "http://registry.mistysys.com/apps/photocraft-0.23.1-aaaaaaaaaaaa.zip" },
+    // A bundle served from anywhere but the registry's own address, or a mirror of anything but the maker's release.
+    { ...good, url: good.source },
+    { ...good, url: "https://registry.mistysys.com/apps/photocraft-0.23.1-bbbbbbbbbbbb.zip" },
+    { ...good, source: "https://github.com/misty-org/misty-apps/releases/download/v1/a.zip" },
     { ...good, sha256: "ABC" },
     { ...good, size: 0 },
     { ...good, logo: "https://example.com/icon.png" },

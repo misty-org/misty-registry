@@ -31,6 +31,8 @@ jobs:
           node-version: 22
       - name: Build each app that isn't hosted yet and upload it
         run: node scripts/ship_builds.mjs
+      - name: Mirror each maker's release that isn't hosted yet
+        run: node scripts/ship_mirrors.mjs
       - name: Pin the hosted builds
         run: |
           set -euo pipefail

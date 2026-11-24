@@ -1,13 +1,14 @@
 // Pins each app to its maker's latest release and writes apps.json:
 //   node scripts/refresh.mjs [id...]      (set GITHUB_TOKEN to avoid the anonymous rate limit)
-// Nothing is downloaded or kept here: the release's own zip address and the checksum GitHub reports for it are
-// what get pinned, and Misty downloads the maker's zip itself, at install, and checks it against this checksum.
+// Nothing is downloaded here: the checksum GitHub reports for the maker's release zip is pinned, with the release's
+// address as `source` and the registry's own mirror of it as `url`. `ship_mirrors.mjs` uploads the mirror, checked
+// against that checksum, and Misty downloads it from the registry at install and checks it again.
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import { zipName } from "./build_apps.mjs";
 import { scriptFile } from "./files.mjs";
-import { entryProblems } from "./lib.mjs";
+import { BUILDS_ORIGIN, entryProblems, mirrorName } from "./lib.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const wanted = process.argv.slice(2);
@@ -180,7 +181,8 @@ async function pin(listed) {
     license,
     version,
     tag,
-    url: asset.browser_download_url,
+    source: asset.browser_download_url,
+    url: `${BUILDS_ORIGIN}${mirrorName(config.id, version, asset.digest.slice("sha256:".length))}`,
     sha256: asset.digest.slice("sha256:".length),
     size: asset.size,
     logo,
