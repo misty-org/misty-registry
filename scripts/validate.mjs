@@ -1,6 +1,7 @@
 // CI: the registry is what every Misty installs from, so every entry must be complete and safe before it can land.
 import { readFileSync, readdirSync } from "node:fs";
 import { built } from "./build.mjs";
+import { referencedScripts, scriptSources } from "./files.mjs";
 import { engineProblems, entryProblems, ignoreProblems, speechProblems } from "./lib.mjs";
 
 const root = new URL("../", import.meta.url);
@@ -13,6 +14,10 @@ for (const app of pins.apps ?? []) {
   problems.push(...entryProblems(app));
   if (seen.has(app.id)) problems.push(`${app.id}: listed twice`);
   seen.add(app.id);
+}
+const sources = scriptSources();
+for (const file of referencedScripts(pins.apps ?? [])) {
+  if (!sources.has(file.sha256)) problems.push(`${file.id}: no script here has the checksum its pin names; run refresh for it`);
 }
 // Every app that is described here is pinned, and nothing is pinned that isn't.
 // An app's own folder (`apps/<id>/`) holds its adapter; only `apps/<id>.json` describes an app.

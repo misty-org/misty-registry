@@ -94,6 +94,21 @@ export function originAllows(origin, address) {
   return url.hostname.endsWith(domain) && url.hostname.length > domain.length;
 }
 
+export const SCRIPTS_ORIGIN = "https://registry.mistysys.com/files/";
+export const MAX_SCRIPT_BYTES = 256 * 1024;
+
+function scriptProblems(file, need, what, { local = false } = {}) {
+  need(file && typeof file === "object", `${what} needs its file`);
+  need(typeof file?.sha256 === "string" && SHA256.test(file.sha256), `${what} sha256 must be 64 lowercase hex digits`);
+  need(Number.isInteger(file?.size) && file.size > 0 && file.size <= MAX_SCRIPT_BYTES, `${what} size must be its bytes, within 256 KB`);
+  need(
+    typeof file?.url === "string" &&
+      (file.url === `${SCRIPTS_ORIGIN}${file.sha256}.js` || (local && file.url.startsWith("file:///") && file.url.endsWith(`/${file.sha256}.js`))),
+    `${what} is a script on the registry's address, named by its checksum`,
+  );
+  need(!("content" in (file ?? {})), `${what} carries no source: Misty fetches it by its checksum`);
+}
+
 function siteProblems(app) {
   const problems = [];
   const need = (ok, text) => ok || problems.push(`${app?.id ?? "?"}: ${text}`);
@@ -119,7 +134,9 @@ function siteProblems(app) {
   );
   need(app?.manifest?.name === app?.name, "manifest name is the app's name");
   need(JSON.stringify(app?.manifest?.permissions) === JSON.stringify(app?.permissions), "manifest permissions match the entry's");
-  need(app?.manifest?.mcp !== "adapter" || (typeof app?.adapter_source === "string" && app.adapter_source.length > 0), "an adapter site carries its adapter's source");
+  need(app?.manifest?.mcp !== "adapter" || app?.adapter !== undefined, "an adapter site names its adapter");
+  if (app?.adapter !== undefined) scriptProblems(app.adapter, need, "adapter");
+  need(!("adapter_source" in (app ?? {})), "an adapter is a file on the registry's address, never source in the entry");
   need(!("url" in (app ?? {})) && !("sha256" in (app ?? {})) && !("upstream" in (app ?? {})), "a website app pins no release: it is the maker's own live site");
   return problems;
 }
@@ -193,6 +210,11 @@ export function entryProblems(app, { local = false } = {}) {
   }
   if (app?.mcp_program !== undefined) problems.push(...programProblems(app, upstream));
   need(Array.isArray(app?.add_copies) && app.add_copies.every((c) => safePath(c?.from) && safePath(c?.to)), "add_copies must be paths inside the bundle");
+  need(app?.add_files === undefined || Array.isArray(app.add_files), "add_files must be a list");
+  for (const file of Array.isArray(app?.add_files) ? app.add_files : []) {
+    need(safePath(file?.path) && file.path.startsWith("misty/") && file.path.endsWith(".js"), "an added file is a script under misty/");
+    scriptProblems(file, need, `added ${file?.path ?? "file"}`, { local });
+  }
   need(typeof app?.strip_top === "boolean", "strip_top must say whether the release is in one folder");
   return problems;
 }

@@ -39,6 +39,10 @@ beside the signed registry, never committed.
 - `.github/workflows/publish.yml`: on every push to `main`, once the checks pass, builds each recipe whose zip
   isn't in the bucket yet and uploads it (`scripts/ship_builds.mjs`), pins the hosted zips and commits the pins,
   then signs `registry.jws.json` and uploads it beside them. Nobody uploads a zip by hand.
+- Adapters (`adapters/*.js`, `apps/<id>/*.js`, `builds/<id>/adapter.js`) are never copied into the registry. An entry
+  names each by its checksum, `{ url, sha256, size }` at `registry.mistysys.com/files/<sha256>.js`; publish uploads
+  them (`scripts/ship_files.mjs`), and Misty fetches one when it installs the app or opens the site, checks it and
+  keeps it. The checks fail when a pin names a script no file here has: run refresh for that app.
 - `apps.json`: the pins, written by `scripts/refresh.mjs`. A built app is pinned there once its zip is hosted
   (`REGISTRY_BUILDS_URL`); a local build's pin, with a `file:` address, goes to `work/apps.local.json` instead. A
   debug build of Misty started with `MISTY_LOCAL_APPS` set to that file lists those apps over its registry and
@@ -95,8 +99,8 @@ Anyone can submit an app, or an integration for one, as a pull request here:
   gives it the SDK's client); the site's own scripts never see it. It sets `window.mistyAdapter` (`tools` and
   `call`) for agents' tools. On Windows, where WebView2 has no isolated world, a website app gets no Space features.
 
-There is nothing to pin: refresh carries the entry as it is, with the adapter's source as `adapter_source`, which the
-registry's signature covers. Nobody's session is shared or sent anywhere: each person signs in on their own computer.
+There is nothing to pin: refresh carries the entry as it is, naming its adapter by address and checksum
+(`adapter`), which the registry's signature covers. Nobody's session is shared or sent anywhere: each person signs in on their own computer.
 YouTube Music is the first: what's playing, play, pause, skip and the queue for agents, and listening together over
 the Space's live room, where whoever plays, pauses or skips leads.
 

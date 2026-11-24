@@ -6,6 +6,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import { zipName } from "./build_apps.mjs";
+import { scriptFile } from "./files.mjs";
 import { entryProblems } from "./lib.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -76,7 +77,7 @@ function site(config) {
     media: config.media,
     permissions: config.manifest.permissions,
     manifest: config.manifest,
-    ...(adapter ? { adapter_source: readFileSync(adapter, "utf8") } : {}),
+    ...(adapter ? { adapter: scriptFile(adapter) } : {}),
     add_copies: [],
     strip_top: false,
   };
@@ -123,7 +124,7 @@ async function built(config) {
     manifest: versioned(config.manifest, recipe.version),
     add_copies: config.add_copies ?? [],
     strip_top: config.strip_top ?? false,
-    ...adapterOf(config),
+    ...adapterOf(config, { local: !BUILDS_URL }),
   };
   const problems = entryProblems(entry, { local: !BUILDS_URL });
   if (problems.length) throw new Error(problems.join("\n"));
@@ -201,7 +202,7 @@ async function pin(listed) {
 }
 
 /** The adapter script of an app whose manifest says `mcp: adapter`, as a file Misty adds to the release. */
-function adapterOf(config) {
+function adapterOf(config, { local = false } = {}) {
   if (config.manifest?.mcp !== "adapter") return {};
   const path = config.manifest.adapter;
   if (typeof path !== "string" || !path.startsWith("misty/")) throw new Error(`${config.id}: an adapter goes under misty/`);
@@ -210,7 +211,7 @@ function adapterOf(config) {
   if (shared !== null && !/^[a-z][a-z0-9-]*$/.test(shared)) throw new Error(`${config.id}: adapter_shared names a file in adapters/`);
   const file = shared ? join(root, "adapters", `${shared}.js`) : join(root, folder, config.id, "adapter.js");
   if (!existsSync(file)) throw new Error(`${config.id}: ${shared ? `adapters/${shared}.js` : `${folder}/${config.id}/adapter.js`} is missing`);
-  return { add_files: [{ path, content: readFileSync(file, "utf8") }] };
+  return { add_files: [{ path, ...scriptFile(file, { local }) }] };
 }
 
 const pinsPath = join(root, "apps.json");
