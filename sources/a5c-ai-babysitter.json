@@ -1,0 +1,13 @@
+{
+  "id": "a5c-ai-babysitter",
+  "name": "babysitter",
+  "repo": "a5c-ai/babysitter",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

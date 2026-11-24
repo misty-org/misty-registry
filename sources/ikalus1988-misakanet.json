@@ -1,0 +1,13 @@
+{
+  "id": "ikalus1988-misakanet",
+  "name": "MisakaNet",
+  "repo": "Ikalus1988/MisakaNet",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

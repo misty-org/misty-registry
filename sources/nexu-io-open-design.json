@@ -1,0 +1,10 @@
+{
+  "id": "nexu-io-open-design",
+  "name": "open-design",
+  "repo": "nexu-io/open-design",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

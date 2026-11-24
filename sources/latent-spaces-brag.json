@@ -1,0 +1,10 @@
+{
+  "id": "latent-spaces-brag",
+  "name": "brag",
+  "repo": "latent-spaces/brag",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

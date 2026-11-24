@@ -1,0 +1,10 @@
+{
+  "id": "clickup",
+  "name": "ClickUp",
+  "description": "Work with tasks and docs in ClickUp",
+  "maker": "ClickUp",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.clickup.com/mcp"
+  }
+}

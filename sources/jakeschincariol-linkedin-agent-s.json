@@ -1,0 +1,10 @@
+{
+  "id": "jakeschincariol-linkedin-agent-s",
+  "name": "linkedin-agent-skill",
+  "repo": "Jakeschincariol/linkedin-agent-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

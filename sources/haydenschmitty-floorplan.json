@@ -1,0 +1,10 @@
+{
+  "id": "haydenschmitty-floorplan",
+  "name": "floorplan",
+  "repo": "haydenschmitty/floorplan",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

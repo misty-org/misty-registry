@@ -1,0 +1,13 @@
+{
+  "id": "hyhmrright-brooks-lint",
+  "name": "brooks-lint",
+  "repo": "hyhmrright/brooks-lint",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

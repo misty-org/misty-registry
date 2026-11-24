@@ -1,0 +1,10 @@
+{
+  "id": "kkkkhazix-khazix-skills",
+  "name": "khazix-skills",
+  "repo": "KKKKhazix/khazix-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

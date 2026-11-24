@@ -1,0 +1,10 @@
+{
+  "id": "viettranx-3dviz-pro-max",
+  "name": "3dviz-pro-max",
+  "repo": "viettranx/3dviz-pro-max",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

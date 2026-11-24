@@ -1,0 +1,13 @@
+{
+  "id": "gastownhall-beads",
+  "name": "beads",
+  "repo": "gastownhall/beads",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

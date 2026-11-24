@@ -1,0 +1,7 @@
+{
+  "id": "nvidia-skillspector",
+  "name": "SkillSpector",
+  "repo": "NVIDIA/SkillSpector",
+  "priority": 100,
+  "skills": {}
+}

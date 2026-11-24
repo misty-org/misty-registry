@@ -1,0 +1,10 @@
+{
+  "id": "obsidianmd-obsidian-skills",
+  "name": "obsidian-skills",
+  "repo": "obsidianmd/obsidian-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

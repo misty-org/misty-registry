@@ -1,0 +1,10 @@
+{
+  "id": "zscole-adversarial-spec",
+  "name": "adversarial-spec",
+  "repo": "zscole/adversarial-spec",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "gamedev-skills-awesome-gamedev-a",
+  "name": "awesome-gamedev-agent-skills",
+  "repo": "gamedev-skills/awesome-gamedev-agent-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

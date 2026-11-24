@@ -1,0 +1,15 @@
+{
+  "id": "heygen-hyperframes",
+  "name": "HyperFrames",
+  "description": "Make and edit videos with HeyGen from your agents",
+  "maker": "HeyGen",
+  "category": "design",
+  "rank": 89167,
+  "homepage": "https://hyperframes.heygen.com/guides/mcp",
+  "remote": {
+    "url": "https://mcp.heygen.com/mcp/hyperframes/"
+  },
+  "registry": {
+    "name": "com.heygen/hyperframes"
+  }
+}

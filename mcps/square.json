@@ -1,0 +1,10 @@
+{
+  "id": "square",
+  "name": "Square",
+  "description": "Work with Square payments, orders and catalog",
+  "maker": "Square",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.squareup.com/mcp"
+  }
+}

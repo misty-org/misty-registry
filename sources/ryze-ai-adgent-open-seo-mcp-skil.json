@@ -1,0 +1,10 @@
+{
+  "id": "ryze-ai-adgent-open-seo-mcp-skil",
+  "name": "open-seo-mcp-skills",
+  "repo": "Ryze-AI-Adgent/open-seo-mcp-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

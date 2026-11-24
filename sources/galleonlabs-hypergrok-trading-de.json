@@ -1,0 +1,13 @@
+{
+  "id": "galleonlabs-hypergrok-trading-de",
+  "name": "hypergrok-trading-desk",
+  "repo": "galleonlabs/hypergrok-trading-desk",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

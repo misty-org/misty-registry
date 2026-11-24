@@ -1,0 +1,10 @@
+{
+  "id": "jakeschincariol-replica-skill",
+  "name": "replica-skill",
+  "repo": "Jakeschincariol/replica-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

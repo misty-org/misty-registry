@@ -1,0 +1,10 @@
+{
+  "id": "rebelytics-one-skill-to-rule-the",
+  "name": "one-skill-to-rule-them-all",
+  "repo": "rebelytics/one-skill-to-rule-them-all",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

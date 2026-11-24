@@ -1,0 +1,28 @@
+{
+  "id": "tavily",
+  "name": "Tavily",
+  "description": "Web search and page extraction made for agents",
+  "maker": "Tavily",
+  "category": "integration",
+  "rank": 2497,
+  "package": {
+    "type": "npm",
+    "identifier": "tavily-mcp",
+    "version": "0.2.15"
+  },
+  "env": [
+    {
+      "name": "TAVILY_API_KEY",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "DEFAULT_PARAMETERS",
+      "secret": false,
+      "required": false
+    }
+  ],
+  "registry": {
+    "name": "io.github.tavily-ai/tavily-mcp"
+  }
+}

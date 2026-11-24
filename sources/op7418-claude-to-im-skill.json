@@ -1,0 +1,7 @@
+{
+  "id": "op7418-claude-to-im-skill",
+  "name": "Claude-to-IM-skill",
+  "repo": "op7418/Claude-to-IM-skill",
+  "priority": 100,
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "unbrowse-ai-unbrowse",
+  "name": "unbrowse",
+  "repo": "unbrowse-ai/unbrowse",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

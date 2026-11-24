@@ -1,0 +1,23 @@
+{
+  "id": "brave-search",
+  "name": "Brave Search",
+  "description": "Search the web, news, images and video with Brave",
+  "maker": "Brave",
+  "category": "integration",
+  "rank": 1590,
+  "package": {
+    "type": "npm",
+    "identifier": "@brave/brave-search-mcp-server",
+    "version": "2.2.0"
+  },
+  "env": [
+    {
+      "name": "BRAVE_API_KEY",
+      "secret": true,
+      "required": true
+    }
+  ],
+  "registry": {
+    "name": "io.github.brave/brave-search-mcp-server"
+  }
+}

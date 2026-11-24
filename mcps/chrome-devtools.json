@@ -1,0 +1,16 @@
+{
+  "id": "chrome-devtools",
+  "name": "Chrome DevTools",
+  "description": "Inspect, debug and measure pages in Chrome with its own DevTools",
+  "maker": "Google Chrome",
+  "category": "integration",
+  "rank": 59104,
+  "package": {
+    "type": "npm",
+    "identifier": "chrome-devtools-mcp",
+    "version": "1.13.0"
+  },
+  "registry": {
+    "name": "io.github.ChromeDevTools/chrome-devtools-mcp"
+  }
+}

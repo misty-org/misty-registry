@@ -1,0 +1,10 @@
+{
+  "id": "pascalorg-editor",
+  "name": "editor",
+  "repo": "pascalorg/editor",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

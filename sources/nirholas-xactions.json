@@ -1,0 +1,13 @@
+{
+  "id": "nirholas-xactions",
+  "name": "XActions",
+  "repo": "nirholas/XActions",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

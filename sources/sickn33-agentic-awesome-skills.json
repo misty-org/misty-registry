@@ -1,0 +1,13 @@
+{
+  "id": "sickn33-agentic-awesome-skills",
+  "name": "agentic-awesome-skills",
+  "repo": "sickn33/agentic-awesome-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

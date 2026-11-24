@@ -1,0 +1,10 @@
+{
+  "id": "plaid",
+  "name": "Plaid",
+  "description": "Look into your Plaid integration and its data",
+  "maker": "Plaid",
+  "category": "general",
+  "remote": {
+    "url": "https://api.dashboard.plaid.com/mcp/"
+  }
+}

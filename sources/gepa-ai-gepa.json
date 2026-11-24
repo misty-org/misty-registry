@@ -1,0 +1,10 @@
+{
+  "id": "gepa-ai-gepa",
+  "name": "gepa",
+  "repo": "gepa-ai/gepa",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

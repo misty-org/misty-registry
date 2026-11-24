@@ -1,0 +1,10 @@
+{
+  "id": "manavarya09-design-extract",
+  "name": "design-extract",
+  "repo": "Manavarya09/design-extract",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

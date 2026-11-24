@@ -1,0 +1,10 @@
+{
+  "id": "kharmanskyi-open-steps",
+  "name": "open-steps",
+  "repo": "kharmanskyi/open-steps",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

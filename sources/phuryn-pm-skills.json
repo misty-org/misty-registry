@@ -1,0 +1,10 @@
+{
+  "id": "phuryn-pm-skills",
+  "name": "pm-skills",
+  "repo": "phuryn/pm-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

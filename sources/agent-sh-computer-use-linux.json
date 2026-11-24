@@ -1,0 +1,10 @@
+{
+  "id": "agent-sh-computer-use-linux",
+  "name": "computer-use-linux",
+  "repo": "agent-sh/computer-use-linux",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

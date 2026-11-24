@@ -1,0 +1,10 @@
+{
+  "id": "maziyarpanahi-openmed",
+  "name": "openmed",
+  "repo": "maziyarpanahi/openmed",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

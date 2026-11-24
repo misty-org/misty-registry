@@ -1,0 +1,10 @@
+{
+  "id": "weizhena-deep-research-skills",
+  "name": "Deep-Research-skills",
+  "repo": "Weizhena/Deep-Research-skills",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

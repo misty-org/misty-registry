@@ -1,0 +1,10 @@
+{
+  "id": "google-gemini-gemini-skills",
+  "name": "gemini-skills",
+  "repo": "google-gemini/gemini-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

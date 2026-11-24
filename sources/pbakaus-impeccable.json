@@ -1,0 +1,13 @@
+{
+  "id": "pbakaus-impeccable",
+  "name": "impeccable",
+  "repo": "pbakaus/impeccable",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

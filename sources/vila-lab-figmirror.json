@@ -1,0 +1,10 @@
+{
+  "id": "vila-lab-figmirror",
+  "name": "FigMirror",
+  "repo": "VILA-Lab/FigMirror",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

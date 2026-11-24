@@ -1,0 +1,13 @@
+{
+  "id": "michael-denyer-pstack-claude",
+  "name": "pstack-claude",
+  "repo": "michael-denyer/pstack-claude",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

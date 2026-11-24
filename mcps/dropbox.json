@@ -1,0 +1,10 @@
+{
+  "id": "dropbox",
+  "name": "Dropbox",
+  "description": "Find, read and organize your Dropbox files",
+  "maker": "Dropbox",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.dropbox.com/mcp"
+  }
+}

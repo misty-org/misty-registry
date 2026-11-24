@@ -1,0 +1,23 @@
+{
+  "id": "firecrawl",
+  "name": "Firecrawl",
+  "description": "Search, scrape and crawl websites into clean text",
+  "maker": "Firecrawl",
+  "category": "integration",
+  "rank": 7896,
+  "package": {
+    "type": "npm",
+    "identifier": "firecrawl-mcp",
+    "version": "3.41.0"
+  },
+  "env": [
+    {
+      "name": "FIRECRAWL_API_KEY",
+      "secret": true,
+      "required": false
+    }
+  ],
+  "registry": {
+    "name": "io.github.firecrawl/firecrawl-mcp-server"
+  }
+}

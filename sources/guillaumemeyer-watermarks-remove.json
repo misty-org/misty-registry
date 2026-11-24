@@ -1,0 +1,10 @@
+{
+  "id": "guillaumemeyer-watermarks-remove",
+  "name": "watermarks-remover",
+  "repo": "guillaumemeyer/watermarks-remover",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

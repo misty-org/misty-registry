@@ -1,0 +1,10 @@
+{
+  "id": "qingyuna-answer-me-with-html",
+  "name": "answer-me-with-html",
+  "repo": "QingYunA/answer-me-with-html",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

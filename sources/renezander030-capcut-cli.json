@@ -1,0 +1,10 @@
+{
+  "id": "renezander030-capcut-cli",
+  "name": "capcut-cli",
+  "repo": "renezander030/capcut-cli",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

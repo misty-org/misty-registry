@@ -1,0 +1,10 @@
+{
+  "id": "posthog",
+  "name": "PostHog",
+  "description": "Query product analytics and feature flags in PostHog",
+  "maker": "PostHog",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.posthog.com/mcp"
+  }
+}

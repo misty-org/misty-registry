@@ -1,0 +1,10 @@
+{
+  "id": "matlab-matlab-agentic-toolkit",
+  "name": "matlab-agentic-toolkit",
+  "repo": "matlab/matlab-agentic-toolkit",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

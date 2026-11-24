@@ -1,0 +1,13 @@
+{
+  "id": "egonex-ai-understand-anything",
+  "name": "Understand-Anything",
+  "repo": "Egonex-AI/Understand-Anything",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

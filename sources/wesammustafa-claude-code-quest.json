@@ -1,0 +1,10 @@
+{
+  "id": "wesammustafa-claude-code-quest",
+  "name": "Claude-Code-Quest",
+  "repo": "wesammustafa/Claude-Code-Quest",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

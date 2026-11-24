@@ -4,15 +4,27 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "refresh": "node scripts/refresh.mjs",
-    "validate": "node scripts/validate.mjs",
-    "test": "node --test scripts/*.test.mjs",
+    "refresh": "node scripts/refresh.ts",
+    "validate": "node scripts/validate.ts",
+    "test": "node --test scripts/*.test.ts",
     "check": "npm run validate && npm run test",
-    "build": "node scripts/build.mjs",
-    "publish:sign": "node scripts/publish.mjs",
-    "keygen": "node scripts/keygen.mjs",
-    "build:apps": "node scripts/build_apps.mjs",
-    "ship:apps": "node scripts/ship_builds.mjs",
-    "ship:mirrors": "node scripts/ship_mirrors.mjs"
+    "build": "node scripts/build.ts",
+    "publish:sign": "node scripts/publish.ts",
+    "keygen": "node scripts/keygen.ts",
+    "build:apps": "node scripts/build_apps.ts",
+    "crawl": "node scripts/crawl.ts",
+    "bundle": "node scripts/bundle.ts",
+    "images": "node scripts/mirror_images.ts",
+    "samples": "node scripts/voice_samples.ts",
+    "add:mcp": "node scripts/add_mcp.ts",
+    "discover": "node scripts/discover_sources.ts",
+    "ship:index": "node scripts/ship_index.ts",
+    "ship:apps": "node scripts/ship_builds.ts",
+    "ship:mirrors": "node scripts/ship_mirrors.ts",
+    "mirror:speech": "node scripts/mirror_speech.ts",
+    "ship:blobs": "node scripts/ship_blobs.ts"
+  },
+  "devDependencies": {
+    "sherpa-onnx-node": "2.0.2"
   }
 }

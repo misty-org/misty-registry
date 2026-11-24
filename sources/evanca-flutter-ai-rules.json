@@ -1,0 +1,10 @@
+{
+  "id": "evanca-flutter-ai-rules",
+  "name": "flutter-ai-rules",
+  "repo": "evanca/flutter-ai-rules",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,19 @@
+{
+  "id": "firebase",
+  "name": "Firebase",
+  "description": "Work with your Firebase projects: data, auth, storage and more",
+  "maker": "Google Firebase",
+  "category": "integration",
+  "rank": 4492,
+  "package": {
+    "type": "npm",
+    "identifier": "firebase-tools",
+    "version": "14.27.0",
+    "args": [
+      "mcp"
+    ]
+  },
+  "registry": {
+    "name": "io.github.firebase/firebase-mcp"
+  }
+}

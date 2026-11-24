@@ -1,0 +1,10 @@
+{
+  "id": "el4cteo-blender-skills",
+  "name": "blender-skills",
+  "repo": "EL4CTEO/blender-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

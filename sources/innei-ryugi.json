@@ -1,0 +1,10 @@
+{
+  "id": "innei-ryugi",
+  "name": "ryugi",
+  "repo": "Innei/ryugi",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

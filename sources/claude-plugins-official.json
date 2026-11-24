@@ -1,0 +1,21 @@
+{
+  "id": "claude-plugins-official",
+  "name": "Claude plugins",
+  "repo": "anthropics/claude-plugins-official",
+  "maker": "Anthropic",
+  "priority": 10,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {
+    "paths": [
+      "plugins"
+    ]
+  },
+  "templates": {
+    "paths": [
+      "plugins"
+    ],
+    "match": "/agents/[^/]+\\.md$"
+  }
+}

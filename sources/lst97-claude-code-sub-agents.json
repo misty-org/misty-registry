@@ -1,0 +1,9 @@
+{
+  "id": "lst97-claude-code-sub-agents",
+  "name": "claude-code-sub-agents",
+  "repo": "lst97/claude-code-sub-agents",
+  "priority": 100,
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

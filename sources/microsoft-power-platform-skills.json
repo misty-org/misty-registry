@@ -1,0 +1,13 @@
+{
+  "id": "microsoft-power-platform-skills",
+  "name": "power-platform-skills",
+  "repo": "microsoft/power-platform-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

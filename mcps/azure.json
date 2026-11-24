@@ -1,0 +1,21 @@
+{
+  "id": "azure",
+  "name": "Azure",
+  "description": "Manage and query your Azure resources",
+  "maker": "Microsoft",
+  "category": "integration",
+  "rank": 3889,
+  "homepage": "https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server",
+  "package": {
+    "type": "npm",
+    "identifier": "@azure/mcp",
+    "version": "3.0.0-beta.48",
+    "args": [
+      "server",
+      "start"
+    ]
+  },
+  "registry": {
+    "name": "com.microsoft/azure"
+  }
+}

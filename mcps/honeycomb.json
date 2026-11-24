@@ -1,0 +1,10 @@
+{
+  "id": "honeycomb",
+  "name": "Honeycomb",
+  "description": "Query traces and look into issues in Honeycomb",
+  "maker": "Honeycomb",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.honeycomb.io/mcp"
+  }
+}

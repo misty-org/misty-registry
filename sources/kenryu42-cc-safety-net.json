@@ -1,0 +1,10 @@
+{
+  "id": "kenryu42-cc-safety-net",
+  "name": "cc-safety-net",
+  "repo": "kenryu42/cc-safety-net",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

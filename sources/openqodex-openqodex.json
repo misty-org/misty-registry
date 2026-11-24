@@ -1,0 +1,10 @@
+{
+  "id": "openqodex-openqodex",
+  "name": "openqodex",
+  "repo": "openqodex/openqodex",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

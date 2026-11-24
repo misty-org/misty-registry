@@ -1,0 +1,13 @@
+{
+  "id": "rohitg00-pro-workflow",
+  "name": "pro-workflow",
+  "repo": "rohitg00/pro-workflow",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

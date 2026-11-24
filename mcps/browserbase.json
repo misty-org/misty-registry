@@ -1,0 +1,33 @@
+{
+  "id": "browserbase",
+  "name": "Browserbase",
+  "description": "Cloud browsers your agents can drive",
+  "maker": "Browserbase",
+  "category": "integration",
+  "rank": 3397,
+  "package": {
+    "type": "npm",
+    "identifier": "@browserbasehq/mcp-server-browserbase",
+    "version": "2.1.1"
+  },
+  "env": [
+    {
+      "name": "BROWSERBASE_API_KEY",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "BROWSERBASE_PROJECT_ID",
+      "secret": false,
+      "required": true
+    },
+    {
+      "name": "GEMINI_API_KEY",
+      "secret": true,
+      "required": true
+    }
+  ],
+  "registry": {
+    "name": "io.github.browserbase/mcp-server-browserbase"
+  }
+}

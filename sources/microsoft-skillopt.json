@@ -1,0 +1,7 @@
+{
+  "id": "microsoft-skillopt",
+  "name": "SkillOpt",
+  "repo": "microsoft/SkillOpt",
+  "priority": 100,
+  "skills": {}
+}

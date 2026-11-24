@@ -1,0 +1,10 @@
+{
+  "id": "internet-court-internet-court-sk",
+  "name": "internet-court-skill",
+  "repo": "internet-court/internet-court-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

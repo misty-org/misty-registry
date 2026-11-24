@@ -1,0 +1,10 @@
+{
+  "id": "revfactory-harness",
+  "name": "harness",
+  "repo": "revfactory/harness",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

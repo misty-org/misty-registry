@@ -1,0 +1,10 @@
+{
+  "id": "romainsimon-paperasse",
+  "name": "paperasse",
+  "repo": "romainsimon/paperasse",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "kajisho5-ffmpeg-skill",
+  "name": "ffmpeg-skill",
+  "repo": "kajisho5/ffmpeg-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

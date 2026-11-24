@@ -1,0 +1,10 @@
+{
+  "id": "emotixco-claude-skills-founder",
+  "name": "claude-skills-founder",
+  "repo": "emotixco/claude-skills-founder",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

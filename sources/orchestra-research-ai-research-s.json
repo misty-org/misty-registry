@@ -1,0 +1,10 @@
+{
+  "id": "orchestra-research-ai-research-s",
+  "name": "AI-Research-SKILLs",
+  "repo": "Orchestra-Research/AI-Research-SKILLs",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

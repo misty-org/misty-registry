@@ -1,0 +1,13 @@
+{
+  "id": "lifecycle-innovations-limited-cl",
+  "name": "claude-ops",
+  "repo": "Lifecycle-Innovations-Limited/claude-ops",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

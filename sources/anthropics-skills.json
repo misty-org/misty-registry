@@ -1,0 +1,12 @@
+{
+  "id": "anthropics-skills",
+  "name": "Anthropic skills",
+  "repo": "anthropics/skills",
+  "maker": "Anthropic",
+  "priority": 10,
+  "skills": {
+    "paths": [
+      "skills"
+    ]
+  }
+}

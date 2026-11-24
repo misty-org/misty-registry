@@ -1,0 +1,10 @@
+{
+  "id": "el4cteo-fast-anything",
+  "name": "fast-anything",
+  "repo": "EL4CTEO/fast-anything",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

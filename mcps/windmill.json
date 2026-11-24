@@ -1,0 +1,15 @@
+{
+  "id": "windmill",
+  "name": "Windmill",
+  "description": "Run your Windmill scripts and flows from your agents",
+  "maker": "Windmill",
+  "category": "general",
+  "rank": 18705,
+  "homepage": "https://www.windmill.dev/docs/core_concepts/mcp",
+  "remote": {
+    "url": "https://app.windmill.dev/api/mcp/gateway"
+  },
+  "registry": {
+    "name": "io.github.windmill-labs/windmill"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "arekejoker-qwen21-nsfw-pose-skil",
+  "name": "qwen21-nsfw-pose-skill",
+  "repo": "Arekejoker/qwen21-nsfw-pose-skill",
+  "priority": 100,
+  "skills": {}
+}

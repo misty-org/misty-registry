@@ -1,0 +1,10 @@
+{
+  "id": "devin-axis-ipollowork",
+  "name": "iPolloWork",
+  "repo": "Devin-AXIS/iPolloWork",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

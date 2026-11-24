@@ -1,0 +1,10 @@
+{
+  "id": "conardli-garden-skills",
+  "name": "garden-skills",
+  "repo": "ConardLi/garden-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

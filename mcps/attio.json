@@ -1,0 +1,10 @@
+{
+  "id": "attio",
+  "name": "Attio",
+  "description": "Search and update your Attio CRM",
+  "maker": "Attio",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.attio.com/mcp"
+  }
+}

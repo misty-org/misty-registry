@@ -1,0 +1,13 @@
+{
+  "id": "jeffallan-claude-skills",
+  "name": "claude-skills",
+  "repo": "Jeffallan/claude-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

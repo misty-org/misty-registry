@@ -1,0 +1,10 @@
+{
+  "id": "cth9191-animate",
+  "name": "animate",
+  "repo": "cth9191/animate",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "taekchef-claude-code-zh-cn",
+  "name": "claude-code-zh-cn",
+  "repo": "taekchef/claude-code-zh-cn",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

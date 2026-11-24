@@ -1,0 +1,10 @@
+{
+  "id": "dietrichgebert-ponytail",
+  "name": "ponytail",
+  "repo": "DietrichGebert/ponytail",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

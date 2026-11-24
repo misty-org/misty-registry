@@ -1,0 +1,10 @@
+{
+  "id": "mrgediao-shuorenhua",
+  "name": "shuorenhua",
+  "repo": "MrGeDiao/shuorenhua",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

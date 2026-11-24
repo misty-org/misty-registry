@@ -1,0 +1,10 @@
+{
+  "id": "buildkite",
+  "name": "Buildkite",
+  "description": "Look into Buildkite pipelines and builds",
+  "maker": "Buildkite",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.buildkite.com/mcp"
+  }
+}

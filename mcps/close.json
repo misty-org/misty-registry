@@ -1,0 +1,10 @@
+{
+  "id": "close",
+  "name": "Close",
+  "description": "Search and update leads in Close",
+  "maker": "Close",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.close.com/mcp"
+  }
+}

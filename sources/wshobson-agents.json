@@ -1,0 +1,21 @@
+{
+  "id": "wshobson-agents",
+  "name": "Agents, skills and plugins",
+  "repo": "wshobson/agents",
+  "maker": "Seth Hobson",
+  "priority": 40,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {
+    "paths": [
+      "plugins"
+    ]
+  },
+  "templates": {
+    "paths": [
+      "plugins"
+    ],
+    "match": "/agents/[^/]+\\.md$"
+  }
+}

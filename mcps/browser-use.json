@@ -1,0 +1,20 @@
+{
+  "id": "browser-use",
+  "name": "Browser Use",
+  "description": "Lets an agent drive a real web browser to finish tasks on sites",
+  "maker": "Browser Use",
+  "category": "devops",
+  "rank": 121892,
+  "homepage": "https://browser-use.com",
+  "package": {
+    "type": "pypi",
+    "identifier": "browser-use",
+    "version": "0.13.11",
+    "args": [
+      "--cli-mcp"
+    ]
+  },
+  "registry": {
+    "name": "com.browser-use/browser-use"
+  }
+}

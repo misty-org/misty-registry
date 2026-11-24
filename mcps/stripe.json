@@ -1,0 +1,10 @@
+{
+  "id": "stripe",
+  "name": "Stripe",
+  "description": "Work with Stripe customers, payments and subscriptions",
+  "maker": "Stripe",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.stripe.com"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "zenbu-labs-terminal-browser",
+  "name": "terminal-browser",
+  "repo": "zenbu-labs/terminal-browser",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

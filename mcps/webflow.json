@@ -1,0 +1,10 @@
+{
+  "id": "webflow",
+  "name": "Webflow",
+  "description": "Edit Webflow sites, pages and CMS items",
+  "maker": "Webflow",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.webflow.com/mcp"
+  }
+}

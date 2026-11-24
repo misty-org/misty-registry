@@ -1,0 +1,10 @@
+{
+  "id": "divar-ir-ai-doc-gen",
+  "name": "ai-doc-gen",
+  "repo": "divar-ir/ai-doc-gen",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

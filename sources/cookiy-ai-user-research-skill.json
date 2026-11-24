@@ -1,0 +1,10 @@
+{
+  "id": "cookiy-ai-user-research-skill",
+  "name": "user-research-skill",
+  "repo": "cookiy-ai/user-research-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

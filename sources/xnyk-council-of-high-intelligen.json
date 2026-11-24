@@ -1,0 +1,13 @@
+{
+  "id": "xnyk-council-of-high-intelligen",
+  "name": "council-of-high-intelligence",
+  "repo": "0xNyk/council-of-high-intelligence",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

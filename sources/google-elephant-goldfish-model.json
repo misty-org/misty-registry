@@ -1,0 +1,13 @@
+{
+  "id": "google-elephant-goldfish-model",
+  "name": "elephant-goldfish-model",
+  "repo": "google/elephant-goldfish-model",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

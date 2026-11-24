@@ -1,0 +1,10 @@
+{
+  "id": "jimliu-baoyu-skills",
+  "name": "baoyu-skills",
+  "repo": "JimLiu/baoyu-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "keli-wen-agy-staff",
+  "name": "agy-staff",
+  "repo": "keli-wen/agy-staff",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

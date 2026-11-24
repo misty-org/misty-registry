@@ -1,0 +1,10 @@
+{
+  "id": "centminmod-my-claude-code-setup",
+  "name": "my-claude-code-setup",
+  "repo": "centminmod/my-claude-code-setup",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "composio-community-awesome-claud",
+  "name": "awesome-claude-plugins",
+  "repo": "composio-community/awesome-claude-plugins",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

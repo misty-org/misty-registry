@@ -1,0 +1,7 @@
+{
+  "id": "googleworkspace-cli",
+  "name": "cli",
+  "repo": "googleworkspace/cli",
+  "priority": 100,
+  "skills": {}
+}

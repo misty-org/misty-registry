@@ -1,0 +1,13 @@
+{
+  "id": "jordanrendric-claude-video-visio",
+  "name": "claude-video-vision",
+  "repo": "jordanrendric/claude-video-vision",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

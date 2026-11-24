@@ -1,0 +1,9 @@
+{
+  "id": "gsd-build-get-shit-done",
+  "name": "get-shit-done",
+  "repo": "gsd-build/get-shit-done",
+  "priority": 100,
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "trailofbits-skills",
+  "name": "skills",
+  "repo": "trailofbits/skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

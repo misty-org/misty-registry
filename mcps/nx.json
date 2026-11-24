@@ -1,0 +1,16 @@
+{
+  "id": "nx",
+  "name": "Nx",
+  "description": "Understand and run tasks in Nx workspaces",
+  "maker": "Nx",
+  "category": "general",
+  "rank": 1416,
+  "package": {
+    "type": "npm",
+    "identifier": "nx-mcp",
+    "version": "0.6.12"
+  },
+  "registry": {
+    "name": "io.github.nrwl/nx-console"
+  }
+}

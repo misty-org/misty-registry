@@ -1,0 +1,10 @@
+{
+  "id": "monday-com",
+  "name": "monday.com",
+  "description": "Work with boards and items in monday.com",
+  "maker": "monday.com",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.monday.com/mcp"
+  }
+}

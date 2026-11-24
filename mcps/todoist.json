@@ -1,0 +1,10 @@
+{
+  "id": "todoist",
+  "name": "Todoist",
+  "description": "Add and organize tasks in Todoist",
+  "maker": "Todoist",
+  "category": "general",
+  "remote": {
+    "url": "https://ai.todoist.net/mcp"
+  }
+}

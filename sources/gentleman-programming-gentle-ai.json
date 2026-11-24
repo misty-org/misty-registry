@@ -1,0 +1,10 @@
+{
+  "id": "gentleman-programming-gentle-ai",
+  "name": "gentle-ai",
+  "repo": "Gentleman-Programming/gentle-ai",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

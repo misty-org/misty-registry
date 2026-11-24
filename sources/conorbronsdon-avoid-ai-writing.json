@@ -1,0 +1,10 @@
+{
+  "id": "conorbronsdon-avoid-ai-writing",
+  "name": "avoid-ai-writing",
+  "repo": "conorbronsdon/avoid-ai-writing",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

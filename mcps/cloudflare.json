@@ -1,0 +1,10 @@
+{
+  "id": "cloudflare",
+  "name": "Cloudflare",
+  "description": "Manage Cloudflare Workers, DNS and more",
+  "maker": "Cloudflare",
+  "category": "devops",
+  "remote": {
+    "url": "https://bindings.mcp.cloudflare.com/mcp"
+  }
+}

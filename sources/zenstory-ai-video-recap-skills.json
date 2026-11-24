@@ -1,0 +1,10 @@
+{
+  "id": "zenstory-ai-video-recap-skills",
+  "name": "video-recap-skills",
+  "repo": "zenstory-ai/video-recap-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "bhanunamikaze-agentic-seo-skill",
+  "name": "Agentic-SEO-Skill",
+  "repo": "Bhanunamikaze/Agentic-SEO-Skill",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

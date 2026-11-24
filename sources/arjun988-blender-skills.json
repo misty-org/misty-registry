@@ -1,0 +1,10 @@
+{
+  "id": "arjun988-blender-skills",
+  "name": "blender-skills",
+  "repo": "arjun988/blender-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

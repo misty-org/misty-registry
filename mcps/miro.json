@@ -1,0 +1,10 @@
+{
+  "id": "miro",
+  "name": "Miro",
+  "description": "Read and add to Miro boards",
+  "maker": "Miro",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.miro.com/"
+  }
+}

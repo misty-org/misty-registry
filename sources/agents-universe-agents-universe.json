@@ -1,0 +1,9 @@
+{
+  "id": "agents-universe-agents-universe",
+  "name": "agents-universe",
+  "repo": "agents-universe/agents-universe",
+  "priority": 100,
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

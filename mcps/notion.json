@@ -1,0 +1,10 @@
+{
+  "id": "notion",
+  "name": "Notion",
+  "description": "Search, read and write your Notion pages and databases",
+  "maker": "Notion",
+  "category": "integration",
+  "remote": {
+    "url": "https://mcp.notion.com/mcp"
+  }
+}

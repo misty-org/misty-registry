@@ -1,0 +1,7 @@
+{
+  "id": "gcpdev-llm-council-skill",
+  "name": "llm-council-skill",
+  "repo": "gcpdev/llm-council-skill",
+  "priority": 100,
+  "skills": {}
+}

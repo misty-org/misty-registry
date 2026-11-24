@@ -1,0 +1,13 @@
+{
+  "id": "test-driven-development",
+  "name": "Test-driven development",
+  "description": "Write the failing test first, then the code",
+  "maker": "Jesse Vincent",
+  "license": "MIT",
+  "category": "testing",
+  "source": {
+    "repo": "obra/superpowers",
+    "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+    "path": "skills/test-driven-development"
+  }
+}

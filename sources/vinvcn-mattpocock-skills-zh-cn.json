@@ -1,0 +1,10 @@
+{
+  "id": "vinvcn-mattpocock-skills-zh-cn",
+  "name": "mattpocock-skills-zh-CN",
+  "repo": "vinvcn/mattpocock-skills-zh-CN",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "paypal",
+  "name": "PayPal",
+  "description": "Work with PayPal invoices, orders and payments",
+  "maker": "PayPal",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.paypal.com/mcp"
+  }
+}

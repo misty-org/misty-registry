@@ -1,0 +1,17 @@
+{
+  "id": "tencent-cloudbase",
+  "name": "CloudBase",
+  "description": "Build and deploy on Tencent CloudBase",
+  "maker": "Tencent Cloud",
+  "category": "devops",
+  "rank": 1168,
+  "homepage": "https://github.com/TencentCloudBase/CloudBase-AI-Toolkit",
+  "package": {
+    "type": "npm",
+    "identifier": "@cloudbase/cloudbase-mcp",
+    "version": "2.37.9"
+  },
+  "registry": {
+    "name": "io.github.TencentCloudBase/cloudbase-mcp"
+  }
+}

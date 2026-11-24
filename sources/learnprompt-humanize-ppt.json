@@ -1,0 +1,10 @@
+{
+  "id": "learnprompt-humanize-ppt",
+  "name": "humanize-ppt",
+  "repo": "LearnPrompt/humanize-ppt",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

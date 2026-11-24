@@ -1,0 +1,10 @@
+{
+  "id": "jaypokale-chisle",
+  "name": "Chisle",
+  "repo": "JayPokale/Chisle",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

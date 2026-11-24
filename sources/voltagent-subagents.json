@@ -1,0 +1,12 @@
+{
+  "id": "voltagent-subagents",
+  "name": "Claude Code subagents",
+  "repo": "VoltAgent/awesome-claude-code-subagents",
+  "maker": "VoltAgent",
+  "priority": 30,
+  "templates": {
+    "paths": [
+      "categories"
+    ]
+  }
+}

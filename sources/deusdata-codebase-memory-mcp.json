@@ -1,0 +1,9 @@
+{
+  "id": "deusdata-codebase-memory-mcp",
+  "name": "codebase-memory-mcp",
+  "repo": "DeusData/codebase-memory-mcp",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

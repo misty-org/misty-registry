@@ -1,0 +1,10 @@
+{
+  "id": "gitlab",
+  "name": "GitLab",
+  "description": "Work with GitLab projects, issues and merge requests",
+  "maker": "GitLab",
+  "category": "general",
+  "remote": {
+    "url": "https://gitlab.com/api/v4/mcp"
+  }
+}

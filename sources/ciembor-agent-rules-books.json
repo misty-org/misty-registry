@@ -1,0 +1,7 @@
+{
+  "id": "ciembor-agent-rules-books",
+  "name": "agent-rules-books",
+  "repo": "ciembor/agent-rules-books",
+  "priority": 100,
+  "skills": {}
+}

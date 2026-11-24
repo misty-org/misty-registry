@@ -1,0 +1,10 @@
+{
+  "id": "addyosmani-web-quality-skills",
+  "name": "web-quality-skills",
+  "repo": "addyosmani/web-quality-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

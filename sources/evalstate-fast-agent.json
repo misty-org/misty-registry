@@ -1,0 +1,10 @@
+{
+  "id": "evalstate-fast-agent",
+  "name": "fast-agent",
+  "repo": "evalstate/fast-agent",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

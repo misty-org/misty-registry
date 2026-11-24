@@ -1,0 +1,10 @@
+{
+  "id": "alexgreensh-anidoodle",
+  "name": "anidoodle",
+  "repo": "alexgreensh/anidoodle",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

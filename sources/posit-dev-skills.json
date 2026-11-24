@@ -1,0 +1,10 @@
+{
+  "id": "posit-dev-skills",
+  "name": "skills",
+  "repo": "posit-dev/skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

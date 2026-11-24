@@ -1,0 +1,7 @@
+{
+  "id": "antonbabenko-terraform-skill",
+  "name": "terraform-skill",
+  "repo": "antonbabenko/terraform-skill",
+  "priority": 100,
+  "skills": {}
+}

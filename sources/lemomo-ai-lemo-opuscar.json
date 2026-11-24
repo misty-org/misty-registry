@@ -1,0 +1,10 @@
+{
+  "id": "lemomo-ai-lemo-opuscar",
+  "name": "lemo-opuscar",
+  "repo": "lemomo-ai/lemo-opuscar",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

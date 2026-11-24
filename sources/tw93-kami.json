@@ -1,0 +1,10 @@
+{
+  "id": "tw93-kami",
+  "name": "Kami",
+  "repo": "tw93/Kami",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cal-com",
+  "name": "Cal.com",
+  "description": "See and book meetings on Cal.com",
+  "maker": "Cal.com",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.cal.com/mcp"
+  }
+}

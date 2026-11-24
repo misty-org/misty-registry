@@ -1,0 +1,10 @@
+{
+  "id": "tryatlas-atlas",
+  "name": "atlas",
+  "repo": "tryatlas/atlas",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

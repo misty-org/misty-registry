@@ -1,0 +1,10 @@
+{
+  "id": "google-skills",
+  "name": "skills",
+  "repo": "google/skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

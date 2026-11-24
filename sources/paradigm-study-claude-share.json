@@ -1,0 +1,9 @@
+{
+  "id": "paradigm-study-claude-share",
+  "name": "claude-share",
+  "repo": "Paradigm-Study/claude-share",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

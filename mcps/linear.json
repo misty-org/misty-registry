@@ -1,0 +1,10 @@
+{
+  "id": "linear",
+  "name": "Linear",
+  "description": "Find, create and update Linear issues and projects",
+  "maker": "Linear",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.linear.app/mcp"
+  }
+}

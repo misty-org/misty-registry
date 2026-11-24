@@ -1,0 +1,10 @@
+{
+  "id": "wix",
+  "name": "Wix",
+  "description": "Manage Wix sites and their content",
+  "maker": "Wix",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.wix.com/mcp"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "luongnv89-claude-howto",
+  "name": "claude-howto",
+  "repo": "luongnv89/claude-howto",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

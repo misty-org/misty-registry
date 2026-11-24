@@ -1,0 +1,13 @@
+{
+  "id": "me2resh-apexyard",
+  "name": "apexyard",
+  "repo": "me2resh/apexyard",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

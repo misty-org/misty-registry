@@ -1,0 +1,10 @@
+{
+  "id": "browser-use-browser-harness",
+  "name": "browser-harness",
+  "repo": "browser-use/browser-harness",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

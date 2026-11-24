@@ -1,0 +1,10 @@
+{
+  "id": "lululu811-zettaranc-skill",
+  "name": "zettaranc-skill",
+  "repo": "lululu811/zettaranc-skill",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

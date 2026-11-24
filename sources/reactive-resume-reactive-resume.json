@@ -1,0 +1,10 @@
+{
+  "id": "reactive-resume-reactive-resume",
+  "name": "reactive-resume",
+  "repo": "reactive-resume/reactive-resume",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

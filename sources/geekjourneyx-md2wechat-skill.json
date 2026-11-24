@@ -1,0 +1,10 @@
+{
+  "id": "geekjourneyx-md2wechat-skill",
+  "name": "md2wechat-skill",
+  "repo": "geekjourneyx/md2wechat-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

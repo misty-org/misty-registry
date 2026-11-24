@@ -1,0 +1,10 @@
+{
+  "id": "levnikolaevich-claude-code-skill",
+  "name": "claude-code-skills",
+  "repo": "levnikolaevich/claude-code-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

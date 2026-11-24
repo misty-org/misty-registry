@@ -1,0 +1,13 @@
+{
+  "id": "agenticnotetaking-arscontexta",
+  "name": "arscontexta",
+  "repo": "agenticnotetaking/arscontexta",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

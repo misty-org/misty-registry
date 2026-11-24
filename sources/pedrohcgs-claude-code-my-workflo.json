@@ -1,0 +1,10 @@
+{
+  "id": "pedrohcgs-claude-code-my-workflo",
+  "name": "claude-code-my-workflow",
+  "repo": "pedrohcgs/claude-code-my-workflow",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ayghri-i-have-adhd",
+  "name": "i-have-adhd",
+  "repo": "ayghri/i-have-adhd",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

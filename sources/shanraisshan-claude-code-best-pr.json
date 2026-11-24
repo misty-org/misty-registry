@@ -1,0 +1,10 @@
+{
+  "id": "shanraisshan-claude-code-best-pr",
+  "name": "claude-code-best-practice",
+  "repo": "shanraisshan/claude-code-best-practice",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

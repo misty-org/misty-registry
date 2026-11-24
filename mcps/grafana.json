@@ -1,0 +1,15 @@
+{
+  "id": "grafana",
+  "name": "Grafana",
+  "description": "Search dashboards, query data and look into incidents in Grafana",
+  "maker": "Grafana Labs",
+  "category": "integration",
+  "rank": 3697,
+  "homepage": "https://grafana.com/docs/grafana/latest/developer-resources/mcp/",
+  "remote": {
+    "url": "https://mcp.grafana.com/mcp"
+  },
+  "registry": {
+    "name": "io.github.grafana/mcp-grafana"
+  }
+}

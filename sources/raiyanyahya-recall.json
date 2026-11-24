@@ -1,0 +1,9 @@
+{
+  "id": "raiyanyahya-recall",
+  "name": "recall",
+  "repo": "raiyanyahya/recall",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

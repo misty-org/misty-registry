@@ -1,0 +1,10 @@
+{
+  "id": "backnotprop-plannotator",
+  "name": "plannotator",
+  "repo": "backnotprop/plannotator",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

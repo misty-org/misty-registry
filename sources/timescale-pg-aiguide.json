@@ -1,0 +1,10 @@
+{
+  "id": "timescale-pg-aiguide",
+  "name": "pg-aiguide",
+  "repo": "timescale/pg-aiguide",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

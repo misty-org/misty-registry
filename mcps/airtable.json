@@ -1,0 +1,10 @@
+{
+  "id": "airtable",
+  "name": "Airtable",
+  "description": "Read and update your Airtable bases",
+  "maker": "Airtable",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.airtable.com/mcp"
+  }
+}

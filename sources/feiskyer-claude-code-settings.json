@@ -1,0 +1,13 @@
+{
+  "id": "feiskyer-claude-code-settings",
+  "name": "claude-code-settings",
+  "repo": "feiskyer/claude-code-settings",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

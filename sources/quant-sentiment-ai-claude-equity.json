@@ -1,0 +1,9 @@
+{
+  "id": "quant-sentiment-ai-claude-equity",
+  "name": "claude-equity-research",
+  "repo": "quant-sentiment-ai/claude-equity-research",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

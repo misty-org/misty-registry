@@ -1,0 +1,10 @@
+{
+  "id": "figma",
+  "name": "Figma",
+  "description": "Read Figma designs and turn them into code",
+  "maker": "Figma",
+  "category": "design",
+  "remote": {
+    "url": "https://mcp.figma.com/mcp"
+  }
+}

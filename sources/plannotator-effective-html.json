@@ -1,0 +1,10 @@
+{
+  "id": "plannotator-effective-html",
+  "name": "effective-html",
+  "repo": "plannotator/effective-html",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

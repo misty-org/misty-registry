@@ -1,0 +1,10 @@
+{
+  "id": "canva",
+  "name": "Canva",
+  "description": "Create and edit Canva designs",
+  "maker": "Canva",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.canva.com/mcp"
+  }
+}

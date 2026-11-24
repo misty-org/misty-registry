@@ -1,0 +1,10 @@
+{
+  "id": "optim-agent-optim-agent",
+  "name": "optim-agent",
+  "repo": "Optim-Agent/optim-agent",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

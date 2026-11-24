@@ -1,0 +1,10 @@
+{
+  "id": "agency-agents",
+  "name": "Agency agents",
+  "repo": "msitarzewski/agency-agents",
+  "maker": "AgentLand Contributors",
+  "priority": 20,
+  "templates": {
+    "match": "^[a-z][a-z-]*/[^/]+\\.md$"
+  }
+}

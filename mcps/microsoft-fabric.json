@@ -1,0 +1,21 @@
+{
+  "id": "microsoft-fabric",
+  "name": "Microsoft Fabric",
+  "description": "Work with your data in Microsoft Fabric",
+  "maker": "Microsoft",
+  "category": "integration",
+  "rank": 3889,
+  "homepage": "https://github.com/microsoft/mcp/tree/main/servers/Fabric.Mcp.Server",
+  "package": {
+    "type": "npm",
+    "identifier": "@microsoft/fabric-mcp",
+    "version": "1.4.0",
+    "args": [
+      "server",
+      "start"
+    ]
+  },
+  "registry": {
+    "name": "com.microsoft/microsoft-fabric"
+  }
+}

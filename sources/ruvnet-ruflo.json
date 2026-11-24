@@ -1,0 +1,13 @@
+{
+  "id": "ruvnet-ruflo",
+  "name": "ruflo",
+  "repo": "ruvnet/ruflo",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "snflkd-fluent-korean",
+  "name": "fluent-korean",
+  "repo": "snflkd/fluent-korean",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

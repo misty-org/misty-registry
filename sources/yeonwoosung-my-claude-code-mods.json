@@ -1,0 +1,9 @@
+{
+  "id": "yeonwoosung-my-claude-code-mods",
+  "name": "my-claude-code-mods",
+  "repo": "YeonwooSung/my-claude-code-mods",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

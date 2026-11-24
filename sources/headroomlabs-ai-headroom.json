@@ -1,0 +1,10 @@
+{
+  "id": "headroomlabs-ai-headroom",
+  "name": "headroom",
+  "repo": "headroomlabs-ai/headroom",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

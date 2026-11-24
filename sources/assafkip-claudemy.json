@@ -1,0 +1,10 @@
+{
+  "id": "assafkip-claudemy",
+  "name": "claudemy",
+  "repo": "assafkip/claudemy",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

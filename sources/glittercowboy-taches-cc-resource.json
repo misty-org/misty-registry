@@ -1,0 +1,13 @@
+{
+  "id": "glittercowboy-taches-cc-resource",
+  "name": "taches-cc-resources",
+  "repo": "glittercowboy/taches-cc-resources",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

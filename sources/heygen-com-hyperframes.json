@@ -1,0 +1,10 @@
+{
+  "id": "heygen-com-hyperframes",
+  "name": "hyperframes",
+  "repo": "heygen-com/hyperframes",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

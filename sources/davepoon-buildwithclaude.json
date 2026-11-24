@@ -1,0 +1,13 @@
+{
+  "id": "davepoon-buildwithclaude",
+  "name": "buildwithclaude",
+  "repo": "davepoon/buildwithclaude",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

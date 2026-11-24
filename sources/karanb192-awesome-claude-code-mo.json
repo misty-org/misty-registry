@@ -1,0 +1,9 @@
+{
+  "id": "karanb192-awesome-claude-code-mo",
+  "name": "awesome-claude-code-mods",
+  "repo": "karanb192/awesome-claude-code-mods",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

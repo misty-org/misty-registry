@@ -1,0 +1,98 @@
+{
+  "id": "mongodb",
+  "name": "MongoDB",
+  "description": "Query and manage your MongoDB databases and Atlas",
+  "maker": "MongoDB",
+  "category": "integration",
+  "rank": 1164,
+  "package": {
+    "type": "npm",
+    "identifier": "mongodb-mcp-server",
+    "version": "3.3.0"
+  },
+  "env": [
+    {
+      "name": "MDB_MCP_AGGREGATION_COUNT_MAX_TIME_MS_CAP",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_AGGREGATION_COUNT_TIMEOUT_MS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_ALLOW_REQUEST_OVERRIDES",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_API_CLIENT_ID",
+      "secret": true,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_API_CLIENT_SECRET",
+      "secret": true,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_ASSISTANT_BASE_URL",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_ATLAS_TEMPORARY_DATABASE_USER_LIFETIME_MS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_CONFIRMATION_REQUIRED_TOOLS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_CONNECTION_IDLE_TIMEOUT_MS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_CONNECTION_SCOPE",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_CONNECTION_STRING",
+      "secret": true,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_CONNECTION_STRINGS",
+      "secret": true,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_DANGEROUS_HOST_BINDING",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_DISABLE_SERVER_SIDE_JS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_DISABLE_UNTRUSTED_DATA_WARNING",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "MDB_MCP_DISABLED_TOOLS",
+      "secret": false,
+      "required": false
+    }
+  ],
+  "registry": {
+    "name": "io.github.mongodb-js/mongodb-mcp-server"
+  }
+}

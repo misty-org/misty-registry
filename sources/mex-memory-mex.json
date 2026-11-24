@@ -1,0 +1,10 @@
+{
+  "id": "mex-memory-mex",
+  "name": "mex",
+  "repo": "mex-memory/mex",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

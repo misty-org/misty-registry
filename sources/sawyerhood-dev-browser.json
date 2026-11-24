@@ -1,0 +1,10 @@
+{
+  "id": "sawyerhood-dev-browser",
+  "name": "dev-browser",
+  "repo": "SawyerHood/dev-browser",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

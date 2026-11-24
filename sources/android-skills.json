@@ -1,0 +1,10 @@
+{
+  "id": "android-skills",
+  "name": "skills",
+  "repo": "android/skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "neon",
+  "name": "Neon",
+  "description": "Manage Neon Postgres projects and run queries",
+  "maker": "Neon",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.neon.tech/mcp"
+  }
+}

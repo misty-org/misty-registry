@@ -1,0 +1,13 @@
+{
+  "id": "echovic-boss-skill",
+  "name": "boss-skill",
+  "repo": "echoVic/boss-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "specstoryai-getspecstory",
+  "name": "getspecstory",
+  "repo": "specstoryai/getspecstory",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

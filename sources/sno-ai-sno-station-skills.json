@@ -1,0 +1,10 @@
+{
+  "id": "sno-ai-sno-station-skills",
+  "name": "sno-station-skills",
+  "repo": "sno-ai/sno-station-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

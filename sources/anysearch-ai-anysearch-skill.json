@@ -1,0 +1,7 @@
+{
+  "id": "anysearch-ai-anysearch-skill",
+  "name": "anysearch-skill",
+  "repo": "anysearch-ai/anysearch-skill",
+  "priority": 100,
+  "skills": {}
+}

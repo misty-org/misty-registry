@@ -1,0 +1,13 @@
+{
+  "id": "alirezarezvani-claude-skills",
+  "name": "claude-skills",
+  "repo": "alirezarezvani/claude-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

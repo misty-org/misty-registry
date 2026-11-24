@@ -1,0 +1,13 @@
+{
+  "id": "ccplugins-awesome-claude-code-pl",
+  "name": "awesome-claude-code-plugins",
+  "repo": "ccplugins/awesome-claude-code-plugins",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

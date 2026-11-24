@@ -1,0 +1,13 @@
+{
+  "id": "sangrokjung-claude-forge",
+  "name": "claude-forge",
+  "repo": "sangrokjung/claude-forge",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

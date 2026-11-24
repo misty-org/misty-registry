@@ -1,0 +1,10 @@
+{
+  "id": "mukul975-anthropic-cybersecurity",
+  "name": "Anthropic-Cybersecurity-Skills",
+  "repo": "mukul975/Anthropic-Cybersecurity-Skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

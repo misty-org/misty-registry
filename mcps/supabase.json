@@ -1,0 +1,10 @@
+{
+  "id": "supabase",
+  "name": "Supabase",
+  "description": "Manage Supabase projects and query your database",
+  "maker": "Supabase",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.supabase.com/mcp"
+  }
+}

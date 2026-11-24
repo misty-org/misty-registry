@@ -1,0 +1,10 @@
+{
+  "id": "wojisama-skill-based-architectur",
+  "name": "skill-based-architecture",
+  "repo": "WoJiSama/skill-based-architecture",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

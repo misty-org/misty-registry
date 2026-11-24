@@ -1,0 +1,10 @@
+{
+  "id": "gamma",
+  "name": "Gamma",
+  "description": "Make Gamma presentations and docs",
+  "maker": "Gamma",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.gamma.app/mcp"
+  }
+}

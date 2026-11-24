@@ -40,21 +40,112 @@ server runs (`mcp_program`) is still the maker's own release asset, downloaded f
   it, and the app's `adapter.js`. `npm run build:apps [id]` builds each into `work/builds/` (gitignored) with its
   checksum; the zip keeps the upstream's `LICENSE`, and `NOTICE` credits it.
 - `.github/workflows/publish.yml`: on every push to `main`, once the checks pass, builds each recipe whose zip
-  isn't in the bucket yet and uploads it (`scripts/ship_builds.mjs`), pins the hosted zips and commits the pins,
-  then signs `registry.jws.json` and uploads it beside them. Before that it copies each maker's release zip that
-  isn't in the bucket yet (`scripts/ship_mirrors.mjs`): it downloads the pin's `source`, keeps it only if it is the
+  isn't in the bucket yet and uploads it (`scripts/ship_builds.ts`), pins the hosted zips and commits the pins,
+  then signs the index and uploads it beside them. Before that it copies each maker's release zip that
+  isn't in the bucket yet (`scripts/ship_mirrors.ts`): it downloads the pin's `source`, keeps it only if it is the
   file the pin's checksum names, and uploads it once under a name made of that checksum, never replaced. Nobody
   uploads a zip by hand.
 - Adapters (`adapters/*.js`, `apps/<id>/*.js`, `builds/<id>/adapter.js`) are never copied into the registry. An entry
   names each by its checksum, `{ url, sha256, size }` at `registry.mistysys.com/files/<sha256>.js`; publish uploads
-  them (`scripts/ship_files.mjs`), and Misty fetches one when it installs the app or opens the site, checks it and
+  them (`scripts/ship_files.ts`), and Misty fetches one when it installs the app or opens the site, checks it and
   keeps it. The checks fail when a pin names a script no file here has: run refresh for that app.
-- `apps.json`: the pins, written by `scripts/refresh.mjs`. A built app is pinned there once its zip is hosted
+- `pins.json`: each app's pin, written by `scripts/refresh.ts`; the index's `apps` come from it. A built app is pinned there once its zip is hosted
   (`REGISTRY_BUILDS_URL`); a local build's pin, with a `file:` address, goes to `work/apps.local.json` instead. A
   debug build of Misty started with `MISTY_LOCAL_APPS` set to that file lists those apps over its registry and
   installs them from `work/builds/` only; a release build ignores both.
-- `scripts/refresh.mjs`: moves each pin to the maker's latest release. `.github/workflows/refresh.yml` runs it daily
+- `scripts/refresh.ts`: moves each pin to the maker's latest release. `.github/workflows/refresh.yml` runs it daily
   and opens a pull request.
+
+## The index
+
+`index.min.json` is the one file Misty starts from, and it holds nothing but pointers, so it stays small however
+much is listed. Each pointer is a **shard**'s path with its checksum and size: one per section Misty reads whole at
+launch (`sections.categories`, `apps`, `engines`, `speech`, `ignore`, at `index/sections/<name>.<checksum>.json`), and
+for each kind of listing a top shard and one per category (`listings.<kind>`), read only when someone opens that
+listing. A shard is named by its own checksum so it never changes under its name, and is checked against the root. Publishing signs
+the exact bytes of the root with the registry's key (`index.min.json.sig`), and that one signature covers every
+shard. `npm run build` writes it to `site/` to try locally; a release carries a copy for a first run
+(`npm run sync:registry`).
+
+### The blob store
+
+Everything else Misty fetches from the registry is a **blob**: a file at `registry.mistysys.com/blobs/<sha256>`, named by
+the sha256 of its exact bytes, uploaded once and never replaced, and checked by Misty against that sha256 and its size.
+Installs and previews come from it, never from GitHub:
+
+- Each plugin, skill and agent template carries `bundle: { url, sha256, size }`, a tar.gz of exactly what it is at its
+  pinned commit (`npm run bundle`, after the crawl): a skill's or plugin's folder at the top, with the repository's
+  `LICENSE` beside it when that is the license it takes, or a template's one Markdown file. Bundles are made
+  deterministically (sorted paths, time and owner 0), so the same files are always the same blob.
+- Each app's `logo`, `banner` and `screenshots`, and each listing's maker's face (`avatar`, their GitHub picture),
+  are copies (`npm run images`); an app keeps the addresses they were copied from as `logo_source`, `banner_source`
+  and `screenshots_source`.
+- Each voice carries `sample: { url, sha256, size, type }`, a few words in it rendered the way Misty speaks, with
+  sherpa-onnx and the voice's own pinned package (`npm run samples`).
+
+The steps write `work/blobs/` and `work/bundles.json`, `images.json` and `samples.json`, which `build` reads; an entry
+they have nothing for has none. `publish.yml` keeps those three files between runs, so what didn't change isn't made
+again, and uploads the new blobs (`scripts/ship_blobs.ts`) before it signs and uploads the index.
+
+**Git holds only what people write:** the sources, the apps, the MCP servers, the engines and speech models, and
+`pins.json` (each app's pin, written by `refresh`). Everything else, the crawl of the sources and the index itself, is
+made afresh at every publish, at least once a day.
+
+Where everything comes from:
+
+| Kind | What | Where it comes from |
+| --- | --- | --- |
+| `apps` | open-source web builds and reviewed websites | picked by hand (`apps/<id>.json`), pinned by `refresh` |
+| `plugins` | bundles of skills, agents, commands, hooks or tools, with what each `includes` | the sources' marketplaces |
+| `skills` | a folder with a `SKILL.md` | the sources |
+| `templates` | ready-made instructions to start an agent from | the sources |
+| `mcps` | MCP servers: hosted at the maker's address, run from the maker's package, or both | picked by hand (`mcps/<id>.json`) |
+| `engines`, `speech` | engines, speech models and voices | picked by hand |
+| `ignore` | `.mistyignore` templates Files offers; not shown in Explore | picked by hand |
+
+Nothing is read from an engine's own marketplace: Explore shows the index, and the index grows over time.
+
+Listings share one shape (`id`, `name`, `description`, `maker`, one of the registry's `categories`, a `rank` to sort
+by, and where it came from) and nothing of them is kept here. Files from a source are pinned at one full commit with
+their `license`; an MCP server carries no license, since nothing of it is copied. `scripts/kinds.ts` holds the kinds,
+the categories and the size limits. `npm run check` fails when the root or a shard passes its size (1 MB and 6 MB): a
+listing that has is split further, never read whole.
+
+### MCP servers
+
+Only big names are listed, by hand: a server earns a place by being one a person would look for, roughly a
+repository with a thousand stars or a hosted service of a known maker. Anyone can ask for one. `npm run add:mcp --
+<registry name>` writes its file from the official MCP registry (`registry.modelcontextprotocol.io`) for review; a
+hosted address is kept only if it signs in the way Misty offers, found by asking it as Misty's own sign-in would, and a
+package is pinned at the version listed. `npm run add:mcp -- --stars 1000` proposes every server whose repository has
+that many stars. The MCP registry itself holds some 70,000 servers, mostly the same services listed again and again,
+so it is a place to look things up, never mirrored.
+
+### Sources
+
+A repository that holds skills, agent templates or plugins is a **source**, as an extension repository is in
+Keiyoushi's: `sources/<id>.json` names the repo (`repo`, optionally `ref`), a `priority`, and what to read:
+`skills.paths`, `templates.paths` with a `match` on the file's path, and `plugins.index`, the repository's marketplace
+file (`.claude-plugin/marketplace.json`). `npm run discover` searches GitHub for repositories with real skills, agents
+or a marketplace and enough stars (`--stars`, 500 by default) and, with `--write`, adds them as sources.
+
+`npm run crawl` (in `publish.yml`, `--jobs 8`) reads each source at its latest commit, fetching only the files it reads,
+into `work/crawled/<id>.json`, every entry pinned to that commit, its id starting with the source's. Plugins are
+taken only when they live inside the repository.
+
+- **Licenses.** A skill takes the license of its own `LICENSE` file, else the one its front matter names, else the
+  repository's; a template or plugin takes its folder's or the repository's. Anything whose license isn't one Misty may
+  carry, or can't be told, is left out and counted.
+- **Categories.** Each listing sorts under one of the registry's categories, chosen from its folder, name and
+  description (`categorize` in `scripts/crawl_lib.ts`), never a free word, so the same thing isn't filed two ways.
+- **Rank.** Each listing from a source carries its repository's stars as its `rank`, so Explore can put the most used
+  first.
+- **Duplicates.** Each listing carries a `digest` of its text. When two sources hold the same thing, the one from the
+  source with the lowest `priority` stays and names the others in `also`; the rest are not listed. Different things
+  with the same name stay apart, their ids told apart by their folder. An entry written by hand always wins, and a
+  crawl never lists it again.
+
+Search over the wider world of skills (skills.sh) is not part of Explore: only what is listed here is shown.
 
 An app's name says what is installed; the makers' trademarks never brand Misty. The icons are the makers' own, loaded
 from their repositories.
@@ -133,8 +224,7 @@ says what it covers (`languages`, `*` for any), what it takes (`disk_mb`, `memor
 and `speed`, 1 to 3). Only open models are listed: Apache-2.0, MIT, CC-BY-4.0 and the like. Nothing non-commercial,
 and nothing whose weights or training data carry such terms; a CC BY model names its `credit`, which Misty shows.
 
-`npm run build` gathers them into `speech.json`, `engines.json` and `ignore.json`, and everything into `registry.json`;
-`npm run check` fails when any is out of date.
+`npm run build` writes the index to `site/`; `npm run check` fails when an entry is incomplete or a part of the index is too big.
 
 ## How it reaches people
 
@@ -143,20 +233,21 @@ nobody's Misty reads it.
 
 1. A change lands by pull request, after `ci.yml` checks it. `refresh.yml` opens one each day for the makers' new
    releases.
-2. On every merge, `publish.yml` signs `registry.json` with the registry's key into `registry.jws.json` (Ed25519, in
-   JWS's JSON form, with the time it was published) and puts it on GitHub Pages at
-   `https://registry.mistysys.com/registry.jws.json`.
-3. Misty fetches that one file when it starts, if its copy is more than a day old, asking only for a newer one. It
-   checks the signature against the keys it carries and that it is no older than what it has, then keeps it in
+2. On every merge, `publish.yml` stamps `index.min.json` with the time it was published, signs its exact bytes with
+   the registry's key (Ed25519) into `index.min.json.sig` (`{ kid, alg, signature }`) and puts both on the registry's
+   address, `https://registry.mistysys.com/index.min.json`.
+3. Misty fetches that file when it starts, if its copy is more than a day old, asking only for a newer one. It
+   checks its signature against the keys it carries and that it is no older than what it has, then keeps it in
    `misty.db`. A file that fails either check is dropped and the last good one stays.
-4. A Misty release carries `registry.json` as it was then (`npm run sync:registry` in `misty`), for its first run
+4. A Misty release carries `index.min.json` as it was then (`npm run sync:registry` in `misty`), for its first run
    before it has fetched anything.
 
 People's computers never call GitHub's API for the registry; only `refresh.yml` does, with its token.
 
 ### The signing key
 
-Made once with `npm run keygen -- ~/.misty/.env/misty-registry.pem`. The private key never enters this repository: it
+Made once with `mkdir -p -m 700 ~/.config/misty-registry && npm run keygen -- ~/.config/misty-registry/misty-registry.pem`,
+beside Misty's updater key in `~/.config/misty-release/`, never in `~/.misty`. The private key never enters this repository: it
 lives in the `REGISTRY_SIGNING_KEY` secret (and `REGISTRY_KEY_ID` as a variable when it isn't `misty-registry`). The
 public key it prints goes into Misty's `REGISTRY_KEYS` (`src-tauri/features/registry/mod.rs`). To rotate, add the new
 public key to Misty first, ship that release, then switch the secret.

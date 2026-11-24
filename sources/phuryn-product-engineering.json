@@ -1,0 +1,10 @@
+{
+  "id": "phuryn-product-engineering",
+  "name": "product-engineering",
+  "repo": "phuryn/product-engineering",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

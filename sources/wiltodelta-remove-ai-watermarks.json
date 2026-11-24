@@ -1,0 +1,10 @@
+{
+  "id": "wiltodelta-remove-ai-watermarks",
+  "name": "remove-ai-watermarks",
+  "repo": "wiltodelta/remove-ai-watermarks",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

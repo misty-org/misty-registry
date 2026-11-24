@@ -1,0 +1,7 @@
+{
+  "id": "gargantuax-gemini-watermark-remo",
+  "name": "gemini-watermark-remover",
+  "repo": "GargantuaX/gemini-watermark-remover",
+  "priority": 100,
+  "skills": {}
+}

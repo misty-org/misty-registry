@@ -1,0 +1,13 @@
+{
+  "id": "frontend-design",
+  "name": "Frontend design",
+  "description": "Distinctive, intentional visual design for new or existing UI",
+  "maker": "Anthropic",
+  "license": "Apache-2.0",
+  "category": "design",
+  "source": {
+    "repo": "anthropics/skills",
+    "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+    "path": "skills/frontend-design"
+  }
+}

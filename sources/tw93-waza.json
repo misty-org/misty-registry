@@ -1,0 +1,13 @@
+{
+  "id": "tw93-waza",
+  "name": "Waza",
+  "repo": "tw93/Waza",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

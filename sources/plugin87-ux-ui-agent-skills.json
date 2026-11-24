@@ -1,0 +1,13 @@
+{
+  "id": "plugin87-ux-ui-agent-skills",
+  "name": "ux-ui-agent-skills",
+  "repo": "plugin87/ux-ui-agent-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

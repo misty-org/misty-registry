@@ -1,0 +1,10 @@
+{
+  "id": "gentleman-programming-gentle-she",
+  "name": "gentle-shell",
+  "repo": "Gentleman-Programming/gentle-shell",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

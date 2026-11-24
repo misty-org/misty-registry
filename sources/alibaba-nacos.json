@@ -1,0 +1,7 @@
+{
+  "id": "alibaba-nacos",
+  "name": "nacos",
+  "repo": "alibaba/nacos",
+  "priority": 100,
+  "skills": {}
+}

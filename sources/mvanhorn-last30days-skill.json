@@ -1,0 +1,10 @@
+{
+  "id": "mvanhorn-last30days-skill",
+  "name": "last30days-skill",
+  "repo": "mvanhorn/last30days-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

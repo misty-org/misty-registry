@@ -1,0 +1,10 @@
+{
+  "id": "cablate-mcp-google-map",
+  "name": "mcp-google-map",
+  "repo": "cablate/mcp-google-map",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

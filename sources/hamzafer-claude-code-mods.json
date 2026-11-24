@@ -1,0 +1,12 @@
+{
+  "id": "hamzafer-claude-code-mods",
+  "name": "claude-code-mods",
+  "repo": "hamzafer/claude-code-mods",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

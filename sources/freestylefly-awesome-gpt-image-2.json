@@ -1,0 +1,10 @@
+{
+  "id": "freestylefly-awesome-gpt-image-2",
+  "name": "awesome-gpt-image-2",
+  "repo": "freestylefly/awesome-gpt-image-2",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

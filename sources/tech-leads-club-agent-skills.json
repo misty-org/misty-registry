@@ -1,0 +1,10 @@
+{
+  "id": "tech-leads-club-agent-skills",
+  "name": "agent-skills",
+  "repo": "tech-leads-club/agent-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

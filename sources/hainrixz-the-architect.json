@@ -1,0 +1,13 @@
+{
+  "id": "hainrixz-the-architect",
+  "name": "the-architect",
+  "repo": "Hainrixz/the-architect",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

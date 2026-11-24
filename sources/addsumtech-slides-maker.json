@@ -1,0 +1,13 @@
+{
+  "id": "addsumtech-slides-maker",
+  "name": "slides_maker",
+  "repo": "addsumtech/slides_maker",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

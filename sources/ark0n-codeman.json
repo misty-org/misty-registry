@@ -1,0 +1,10 @@
+{
+  "id": "ark0n-codeman",
+  "name": "Codeman",
+  "repo": "Ark0N/Codeman",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "nykooi1-vibe-wise",
+  "name": "vibe-wise",
+  "repo": "nykooi1/vibe-wise",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

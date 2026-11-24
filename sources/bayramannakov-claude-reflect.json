@@ -1,0 +1,10 @@
+{
+  "id": "bayramannakov-claude-reflect",
+  "name": "claude-reflect",
+  "repo": "BayramAnnakov/claude-reflect",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

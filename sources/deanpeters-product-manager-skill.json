@@ -1,0 +1,10 @@
+{
+  "id": "deanpeters-product-manager-skill",
+  "name": "Product-Manager-Skills",
+  "repo": "deanpeters/Product-Manager-Skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "zenstory-ai-novel-to-game",
+  "name": "novel-to-game",
+  "repo": "zenstory-ai/novel-to-game",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

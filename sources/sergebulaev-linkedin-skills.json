@@ -1,0 +1,10 @@
+{
+  "id": "sergebulaev-linkedin-skills",
+  "name": "linkedin-skills",
+  "repo": "sergebulaev/linkedin-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,13 @@
+{
+  "id": "imbad0202-academic-research-skil",
+  "name": "academic-research-skills",
+  "repo": "Imbad0202/academic-research-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

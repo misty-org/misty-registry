@@ -1,0 +1,10 @@
+{
+  "id": "threerocks-article2media",
+  "name": "article2media",
+  "repo": "threerocks/article2media",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "coreyhaines31-marketingskills",
+  "name": "marketingskills",
+  "repo": "coreyhaines31/marketingskills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

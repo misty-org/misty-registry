@@ -1,0 +1,10 @@
+{
+  "id": "fireflies",
+  "name": "Fireflies",
+  "description": "Search your Fireflies meeting notes and transcripts",
+  "maker": "Fireflies",
+  "category": "general",
+  "remote": {
+    "url": "https://api.fireflies.ai/mcp"
+  }
+}

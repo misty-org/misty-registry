@@ -1,0 +1,10 @@
+{
+  "id": "aerovato-operator-memory",
+  "name": "operator-memory",
+  "repo": "aerovato/operator-memory",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

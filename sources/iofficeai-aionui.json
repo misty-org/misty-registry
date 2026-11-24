@@ -1,0 +1,10 @@
+{
+  "id": "iofficeai-aionui",
+  "name": "AionUi",
+  "repo": "iOfficeAI/AionUi",
+  "priority": 100,
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

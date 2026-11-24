@@ -1,0 +1,10 @@
+{
+  "id": "sentry",
+  "name": "Sentry",
+  "description": "Look into Sentry errors and issues",
+  "maker": "Sentry",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.sentry.dev/mcp"
+  }
+}

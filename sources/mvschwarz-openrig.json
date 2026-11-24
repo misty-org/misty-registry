@@ -1,0 +1,10 @@
+{
+  "id": "mvschwarz-openrig",
+  "name": "openrig",
+  "repo": "mvschwarz/openrig",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

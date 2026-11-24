@@ -1,0 +1,10 @@
+{
+  "id": "oss-invisible-playwright-mcp",
+  "name": "playwright_mcp",
+  "repo": "oss-invisible/playwright_mcp",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

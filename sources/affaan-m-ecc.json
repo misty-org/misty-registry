@@ -1,0 +1,13 @@
+{
+  "id": "affaan-m-ecc",
+  "name": "ECC",
+  "repo": "affaan-m/ECC",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "gmickel-flow-next",
+  "name": "flow-next",
+  "repo": "gmickel/flow-next",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

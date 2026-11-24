@@ -1,0 +1,13 @@
+{
+  "id": "jeremylongshore-tons-of-skills-m",
+  "name": "tons-of-skills-marketplace",
+  "repo": "jeremylongshore/tons-of-skills-marketplace",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

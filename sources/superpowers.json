@@ -1,0 +1,12 @@
+{
+  "id": "superpowers",
+  "name": "Superpowers",
+  "repo": "obra/superpowers",
+  "maker": "Jesse Vincent",
+  "priority": 20,
+  "skills": {
+    "paths": [
+      "skills"
+    ]
+  }
+}

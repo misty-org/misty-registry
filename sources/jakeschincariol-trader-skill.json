@@ -1,0 +1,10 @@
+{
+  "id": "jakeschincariol-trader-skill",
+  "name": "trader-skill",
+  "repo": "Jakeschincariol/trader-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,9 @@
+{
+  "id": "chipfighter-context-attachment-m",
+  "name": "context-attachment-manager",
+  "repo": "chipfighter/context-attachment-manager",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

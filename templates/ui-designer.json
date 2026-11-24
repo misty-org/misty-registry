@@ -1,0 +1,13 @@
+{
+  "id": "ui-designer",
+  "name": "UI designer",
+  "description": "Visual design systems, component libraries and accessible interfaces",
+  "maker": "AgentLand Contributors",
+  "license": "MIT",
+  "category": "design",
+  "source": {
+    "repo": "msitarzewski/agency-agents",
+    "commit": "8ae6164602c95ca78828b148b9052460ee426885",
+    "path": "design/design-ui-designer.md"
+  }
+}

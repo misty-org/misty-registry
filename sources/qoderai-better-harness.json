@@ -1,0 +1,10 @@
+{
+  "id": "qoderai-better-harness",
+  "name": "better-harness",
+  "repo": "QoderAI/better-harness",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

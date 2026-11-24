@@ -1,0 +1,9 @@
+{
+  "id": "alexeyw-lot-map",
+  "name": "lot-map",
+  "repo": "alexeyw/lot-map",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  }
+}

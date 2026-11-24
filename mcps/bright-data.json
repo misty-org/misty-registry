@@ -1,0 +1,48 @@
+{
+  "id": "bright-data",
+  "name": "Bright Data",
+  "description": "Search and read the public web without being blocked",
+  "maker": "Bright Data",
+  "category": "integration",
+  "rank": 2735,
+  "package": {
+    "type": "npm",
+    "identifier": "@brightdata/mcp",
+    "version": "4.9.0"
+  },
+  "env": [
+    {
+      "name": "API_TOKEN",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "BROWSER_ZONE",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "GROUPS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "TOOLS",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "BASE_TIMEOUT",
+      "secret": false,
+      "required": false
+    },
+    {
+      "name": "BASE_MAX_RETRIES",
+      "secret": false,
+      "required": false
+    }
+  ],
+  "registry": {
+    "name": "io.github.brightdata/brightdata-mcp"
+  }
+}

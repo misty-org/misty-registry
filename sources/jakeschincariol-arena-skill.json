@@ -1,0 +1,10 @@
+{
+  "id": "jakeschincariol-arena-skill",
+  "name": "arena-skill",
+  "repo": "Jakeschincariol/arena-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

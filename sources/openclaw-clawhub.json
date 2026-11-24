@@ -1,0 +1,7 @@
+{
+  "id": "openclaw-clawhub",
+  "name": "clawhub",
+  "repo": "openclaw/clawhub",
+  "priority": 100,
+  "skills": {}
+}

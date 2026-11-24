@@ -1,0 +1,10 @@
+{
+  "id": "granola",
+  "name": "Granola",
+  "description": "Search your Granola meeting notes",
+  "maker": "Granola",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.granola.ai/mcp"
+  }
+}

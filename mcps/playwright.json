@@ -1,0 +1,16 @@
+{
+  "id": "playwright",
+  "name": "Playwright",
+  "description": "Browse and test web pages with Playwright, reading each page the way a person would",
+  "maker": "Microsoft",
+  "category": "testing",
+  "rank": 40078,
+  "package": {
+    "type": "npm",
+    "identifier": "@playwright/mcp",
+    "version": "0.0.86"
+  },
+  "registry": {
+    "name": "io.github.microsoft/playwright-mcp"
+  }
+}

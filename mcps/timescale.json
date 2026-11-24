@@ -1,0 +1,53 @@
+{
+  "id": "timescale",
+  "name": "Postgres guide",
+  "description": "Postgres and TimescaleDB docs and skills for writing better SQL",
+  "maker": "Tiger Data",
+  "category": "writing",
+  "rank": 1887,
+  "package": {
+    "type": "npm",
+    "identifier": "@tigerdata/pg-aiguide",
+    "version": "0.6.1"
+  },
+  "env": [
+    {
+      "name": "OPENAI_API_KEY",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "PGHOST",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "PGPORT",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "PGUSER",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "PGPASSWORD",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "PGDATABASE",
+      "secret": true,
+      "required": true
+    },
+    {
+      "name": "DB_SCHEMA",
+      "secret": true,
+      "required": false
+    }
+  ],
+  "registry": {
+    "name": "io.github.timescale/pg-aiguide"
+  }
+}

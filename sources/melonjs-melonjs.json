@@ -1,0 +1,10 @@
+{
+  "id": "melonjs-melonjs",
+  "name": "melonJS",
+  "repo": "melonjs/melonJS",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

@@ -1,0 +1,9 @@
+{
+  "id": "shanraisshan-claude-code-hooks",
+  "name": "claude-code-hooks",
+  "repo": "shanraisshan/claude-code-hooks",
+  "priority": 100,
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

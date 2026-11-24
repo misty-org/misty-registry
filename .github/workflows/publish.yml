@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "41 7 * * *"
 permissions:
   contents: write
 concurrency:
@@ -15,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
       - run: npm run check
   publish:
     needs: check
@@ -28,16 +30,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
       - name: Build each app that isn't hosted yet and upload it
-        run: node scripts/ship_builds.mjs
+        run: node scripts/ship_builds.ts
       - name: Mirror each maker's release that isn't hosted yet
-        run: node scripts/ship_mirrors.mjs
+        run: node scripts/ship_mirrors.ts
       - name: Pin the hosted builds
         run: |
           set -euo pipefail
-          ids=$(node -e 'import("./scripts/build_apps.mjs").then((m) => console.log(m.recipeIds().join(" ")))')
-          node scripts/refresh.mjs $ids
+          ids=$(node -e 'import("./scripts/build_apps.ts").then((m) => console.log(m.recipeIds().join(" ")))')
+          node scripts/refresh.ts $ids
         env:
           REGISTRY_BUILDS_URL: https://registry.mistysys.com/apps
           GITHUB_TOKEN: ${{ github.token }}
@@ -46,19 +48,60 @@ jobs:
       - name: Commit the new pins
         run: |
           set -euo pipefail
-          if git diff --quiet -- apps.json registry.json; then echo "Every built app's pin is current."; exit 0; fi
+          if git diff --quiet -- pins.json; then echo "Every built app's pin is current."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add apps.json registry.json
+          git add pins.json
           git commit -m "chore(registry): pin the apps the registry built"
           git pull --rebase origin main
           git push origin HEAD:main
       - name: Upload the scripts the registry names
-        run: node scripts/ship_files.mjs
+        run: node scripts/ship_files.ts
+      - name: Read the sources for plugins, skills and agent templates
+        run: node scripts/crawl.ts --jobs 8
+      - name: Restore what the last run made of the blobs
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            work/bundles.json
+            work/images.json
+            work/samples.json
+            work/speech_mirrors.json
+          key: registry-blobs-${{ github.run_id }}
+          restore-keys: registry-blobs-
+      - name: Start from what the bucket kept when the cache has nothing
+        run: node scripts/blob_state.ts restore
+      - name: Bundle each plugin, skill and agent template at its commit
+        run: node scripts/bundle.ts --jobs 8
+      - name: Copy the apps' pictures and the makers' faces
+        run: node scripts/mirror_images.ts --jobs 8
+      - name: Render each voice's sample
+        run: |
+          set -euo pipefail
+          command -v ffmpeg >/dev/null || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          npm install --no-package-lock --no-audit --no-fund
+          node scripts/voice_samples.ts
+      - name: Upload the blobs that aren't hosted yet
+        run: node scripts/ship_blobs.ts
+      - name: Copy each speech model into the blobs
+        run: node scripts/mirror_speech.ts
+      - name: Keep what this run made of the blobs
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            work/bundles.json
+            work/images.json
+            work/samples.json
+            work/speech_mirrors.json
+          key: registry-blobs-${{ github.run_id }}
+      - name: Keep what this run made of the blobs on the bucket too
+        run: node scripts/blob_state.ts keep
+      - name: Check what the blobs added to the index
+        run: node scripts/validate.ts
       - name: Sign the registry
-        run: node scripts/publish.mjs
+        run: node scripts/publish.ts
         env:
           REGISTRY_SIGNING_KEY: ${{ secrets.REGISTRY_SIGNING_KEY }}
           REGISTRY_KEY_ID: ${{ vars.REGISTRY_KEY_ID || 'misty-registry' }}
-      - name: Upload the signed registry
-        run: node scripts/r2.mjs put registry.jws.json site/registry.jws.json application/json "public, max-age=300"
+      - name: Upload the index
+        run: node scripts/ship_index.ts

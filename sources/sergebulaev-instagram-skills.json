@@ -1,0 +1,10 @@
+{
+  "id": "sergebulaev-instagram-skills",
+  "name": "instagram-skills",
+  "repo": "sergebulaev/instagram-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

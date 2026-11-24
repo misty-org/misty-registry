@@ -1,0 +1,7 @@
+{
+  "id": "nvidia-skillevaluator",
+  "name": "SkillEvaluator",
+  "repo": "NVIDIA/SkillEvaluator",
+  "priority": 100,
+  "skills": {}
+}

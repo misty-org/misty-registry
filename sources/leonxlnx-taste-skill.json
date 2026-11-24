@@ -1,0 +1,10 @@
+{
+  "id": "leonxlnx-taste-skill",
+  "name": "taste-skill",
+  "repo": "Leonxlnx/taste-skill",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

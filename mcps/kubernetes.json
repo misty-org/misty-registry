@@ -1,0 +1,16 @@
+{
+  "id": "kubernetes",
+  "name": "Kubernetes",
+  "description": "Look into and manage Kubernetes and OpenShift clusters",
+  "maker": "Red Hat",
+  "category": "devops",
+  "rank": 2279,
+  "package": {
+    "type": "npm",
+    "identifier": "kubernetes-mcp-server",
+    "version": "0.1.0"
+  },
+  "registry": {
+    "name": "io.github.containers/kubernetes-mcp-server"
+  }
+}

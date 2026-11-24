@@ -1,0 +1,10 @@
+{
+  "id": "jam",
+  "name": "Jam",
+  "description": "Open Jam bug reports with their logs and recordings",
+  "maker": "Jam",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.jam.dev/mcp"
+  }
+}

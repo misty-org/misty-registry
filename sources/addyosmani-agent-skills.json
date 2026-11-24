@@ -1,0 +1,13 @@
+{
+  "id": "addyosmani-agent-skills",
+  "name": "agent-skills",
+  "repo": "addyosmani/agent-skills",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

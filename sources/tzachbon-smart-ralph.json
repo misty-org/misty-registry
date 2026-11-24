@@ -1,0 +1,13 @@
+{
+  "id": "tzachbon-smart-ralph",
+  "name": "smart-ralph",
+  "repo": "tzachbon/smart-ralph",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "orchestratorinc-agent-orchestrat",
+  "name": "agent-orchestrator",
+  "repo": "OrchestratorInc/agent-orchestrator",
+  "priority": 100,
+  "skills": {}
+}

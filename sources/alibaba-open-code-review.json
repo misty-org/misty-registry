@@ -1,0 +1,10 @@
+{
+  "id": "alibaba-open-code-review",
+  "name": "open-code-review",
+  "repo": "alibaba/open-code-review",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}

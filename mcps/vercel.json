@@ -1,0 +1,10 @@
+{
+  "id": "vercel",
+  "name": "Vercel",
+  "description": "Deploy and manage Vercel projects",
+  "maker": "Vercel",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.vercel.com"
+  }
+}

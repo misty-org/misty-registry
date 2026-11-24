@@ -1,0 +1,13 @@
+{
+  "id": "systematic-debugging",
+  "name": "Systematic debugging",
+  "description": "Find the cause of a bug before proposing a fix",
+  "maker": "Jesse Vincent",
+  "license": "MIT",
+  "category": "development",
+  "source": {
+    "repo": "obra/superpowers",
+    "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+    "path": "skills/systematic-debugging"
+  }
+}

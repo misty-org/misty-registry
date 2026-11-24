@@ -1,0 +1,7 @@
+{
+  "id": "nousresearch-hermes-agent",
+  "name": "hermes-agent",
+  "repo": "NousResearch/hermes-agent",
+  "priority": 100,
+  "skills": {}
+}

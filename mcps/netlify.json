@@ -1,0 +1,10 @@
+{
+  "id": "netlify",
+  "name": "Netlify",
+  "description": "Deploy and manage Netlify sites",
+  "maker": "Netlify",
+  "category": "general",
+  "remote": {
+    "url": "https://netlify-mcp.netlify.app/mcp"
+  }
+}

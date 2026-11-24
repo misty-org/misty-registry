@@ -1,0 +1,10 @@
+{
+  "id": "intercom",
+  "name": "Intercom",
+  "description": "Search conversations and contacts in Intercom",
+  "maker": "Intercom",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.intercom.com/mcp"
+  }
+}

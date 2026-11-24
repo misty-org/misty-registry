@@ -1,0 +1,17 @@
+{
+  "id": "drawio",
+  "name": "draw.io",
+  "description": "Draw diagrams in draw.io from a description",
+  "maker": "draw.io",
+  "category": "integration",
+  "rank": 5892,
+  "homepage": "https://www.drawio.com",
+  "package": {
+    "type": "npm",
+    "identifier": "@drawio/mcp",
+    "version": "1.13.1"
+  },
+  "registry": {
+    "name": "io.draw/mcp"
+  }
+}

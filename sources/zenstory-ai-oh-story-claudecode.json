@@ -1,0 +1,13 @@
+{
+  "id": "zenstory-ai-oh-story-claudecode",
+  "name": "oh-story-claudecode",
+  "repo": "zenstory-ai/oh-story-claudecode",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {},
+  "templates": {
+    "match": "(^|/)agents/[^/]+\\.md$"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "reflexioai-claude-smart",
+  "name": "claude-smart",
+  "repo": "ReflexioAI/claude-smart",
+  "priority": 100,
+  "skills": {}
+}

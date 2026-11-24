@@ -1,0 +1,10 @@
+{
+  "id": "ramp",
+  "name": "Ramp",
+  "description": "Look into spend and transactions in Ramp",
+  "maker": "Ramp",
+  "category": "general",
+  "remote": {
+    "url": "https://mcp.ramp.com/mcp"
+  }
+}

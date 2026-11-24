@@ -1,0 +1,10 @@
+{
+  "id": "mobile-next-mobile-mcp",
+  "name": "mobile-mcp",
+  "repo": "mobile-next/mobile-mcp",
+  "priority": 100,
+  "plugins": {
+    "index": ".claude-plugin/marketplace.json"
+  },
+  "skills": {}
+}
