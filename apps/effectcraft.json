@@ -1,0 +1,33 @@
+{
+  "id": "effectcraft",
+  "name": "EffectCraft",
+  "description": "Open-source motion graphics and VFX",
+  "maker": "storytold",
+  "upstream": "storytold/effectcraft",
+  "web_asset": "effectcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.effectcraft.png",
+  "manifest": {
+    "name": "EffectCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "video/*"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

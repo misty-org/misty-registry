@@ -1,0 +1,8 @@
+{
+  "id": "qoder",
+  "name": "Qoder CLI",
+  "maker": "Qoder",
+  "install": {
+    "route": "none"
+  }
+}

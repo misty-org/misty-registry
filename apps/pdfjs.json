@@ -1,0 +1,24 @@
+{
+  "id": "pdfjs",
+  "name": "PDF.js",
+  "description": "Mozilla's open-source PDF viewer, read and marked up together",
+  "maker": "Mozilla",
+  "upstream": "mozilla/pdf.js",
+  "web_asset": "pdfjs-{version}-dist.zip",
+  "icon": "extensions/chromium/icon128.png",
+  "manifest": {
+    "name": "PDF.js",
+    "logo": "logo.png",
+    "entry": "web/viewer.html",
+    "opens": ["application/pdf", ".pdf"],
+    "own_origin": true,
+    "inline_scripts": false,
+    "shim": false,
+    "network": [],
+    "permissions": ["files", "rooms"],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js",
+    "collab": "adapter"
+  },
+  "strip_top": false
+}

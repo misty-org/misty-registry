@@ -1,0 +1,33 @@
+{
+  "id": "filmcraft",
+  "name": "FilmCraft",
+  "description": "Open-source video editor",
+  "maker": "storytold",
+  "upstream": "storytold/filmcraft",
+  "web_asset": "filmcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.filmcraft.png",
+  "manifest": {
+    "name": "FilmCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "video/*"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

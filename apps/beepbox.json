@@ -1,0 +1,27 @@
+{
+  "id": "beepbox",
+  "name": "BeepBox",
+  "description": "Open-source chiptune sequencer",
+  "maker": "John Nesky",
+  "upstream": "johnnesky/beepbox",
+  "web_asset": "BeepBox_*.zip",
+  "icon": "website/icon_shadow_192.png",
+  "manifest": {
+    "name": "BeepBox",
+    "logo": "icon_shadow_192.png",
+    "entry": "index.html",
+    "opens": [
+      ".beepbox"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "network": [],
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "strip_top": true
+}

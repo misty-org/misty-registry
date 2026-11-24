@@ -1,0 +1,14 @@
+misty-registry builds some apps from their own source and serves the web builds it makes. Each build keeps its
+upstream's license file, and is credited here.
+
+three.js editor, built from https://github.com/mrdoob/three.js
+The MIT License
+Copyright © 2010-2026 three.js authors
+
+Mermaid live editor, built from https://github.com/mermaid-js/mermaid-live-editor
+MIT License
+Copyright (c) 2020 - 2023 Knut Sveidqvist
+
+Excalidraw, built around https://github.com/excalidraw/excalidraw (the @excalidraw/excalidraw package)
+MIT License
+Copyright (c) 2020 Excalidraw

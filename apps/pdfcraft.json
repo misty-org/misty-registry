@@ -1,0 +1,33 @@
+{
+  "id": "pdfcraft",
+  "name": "PdfCraft",
+  "description": "Open-source PDF workbench",
+  "maker": "storytold",
+  "upstream": "storytold/pdfcraft",
+  "web_asset": "pdfcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.pdfcraft.png",
+  "manifest": {
+    "name": "PdfCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "application/pdf"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

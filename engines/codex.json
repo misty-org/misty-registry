@@ -1,0 +1,10 @@
+{
+  "id": "codex",
+  "name": "Codex",
+  "maker": "OpenAI",
+  "source": "https://github.com/openai/codex",
+  "install": {
+    "route": "maker-build",
+    "npm": "@openai/codex"
+  }
+}

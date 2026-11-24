@@ -1,0 +1,48 @@
+{
+  "id": "soundcraft",
+  "name": "SoundCraft",
+  "description": "Digital audio recording, editing, and mixing",
+  "maker": "storytold",
+  "upstream": "storytold/soundcraft",
+  "web_asset": "soundcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.soundcraft.png",
+  "manifest": {
+    "name": "SoundCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "audio/*"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": true,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "binary"
+  },
+  "mcp_program": {
+    "program": "soundcraft-cli",
+    "args": [
+      "mcp"
+    ],
+    "read_root_flag": "--automation-read-root",
+    "write_root_flag": "--automation-write-root",
+    "env": {
+      "SOUNDCRAFT_NO_PREFS": "1"
+    },
+    "builds": {
+      "macos-aarch64": "soundcraft-cli-{version}-macos-universal.zip",
+      "macos-x86_64": "soundcraft-cli-{version}-macos-universal.zip",
+      "linux-x86_64": "soundcraft-{version}-linux-x86_64.tar.gz",
+      "linux-aarch64": "soundcraft-{version}-linux-aarch64.tar.gz"
+    }
+  },
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

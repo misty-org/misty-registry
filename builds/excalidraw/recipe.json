@@ -1,0 +1,14 @@
+{
+  "id": "excalidraw",
+  "name": "Excalidraw",
+  "upstream": "excalidraw/excalidraw",
+  "ref": "v0.18.0",
+  "commit": "817d8c553c3389650f8b4503984a6d4a5d2f0c11",
+  "sdk": "35d5fdee5628690c5199ced4761d5a3ede1dfa55",
+  "version": "0.2.0",
+  "license": "MIT",
+  "paths": [
+    "public/apple-touch-icon.png",
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "lightcraft",
+  "name": "LightCraft",
+  "description": "Open-source photo library and raw developer",
+  "maker": "storytold",
+  "upstream": "storytold/lightcraft",
+  "web_asset": "lightcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.lightcraft.png",
+  "manifest": {
+    "name": "LightCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "image/*"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

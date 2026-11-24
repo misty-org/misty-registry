@@ -1,0 +1,19 @@
+{
+  "id": "java",
+  "name": "Java",
+  "markers": [
+    "pom.xml",
+    "build.gradle",
+    "build.gradle.kts",
+    "settings.gradle"
+  ],
+  "rules": [
+    ".gradle/",
+    "build/",
+    "target/",
+    "out/",
+    "*.class",
+    "hs_err_pid*.log",
+    ".kotlin/"
+  ]
+}

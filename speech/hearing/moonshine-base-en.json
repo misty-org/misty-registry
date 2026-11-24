@@ -1,0 +1,30 @@
+{
+  "id": "moonshine-base-en",
+  "name": "Moonshine Base",
+  "maker": "Moonshine AI",
+  "source": "https://github.com/moonshine-ai/moonshine",
+  "license": "MIT",
+  "description": "Small and quick, English only",
+  "languages": [
+    "en"
+  ],
+  "detects_language": false,
+  "family": "moonshine",
+  "package": {
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-moonshine-base-en-quantized-2026-02-27.tar.bz2",
+    "sha256": "43232c1d13013d37317163baec3135bd771a186a4356f28c889bab453bb0e891",
+    "size": 111266225,
+    "kind": "tar.bz2",
+    "folder": "sherpa-onnx-moonshine-base-en-quantized-2026-02-27"
+  },
+  "files": {
+    "encoder": "encoder_model.ort",
+    "merged_decoder": "decoder_model_merged.ort",
+    "tokens": "tokens.txt"
+  },
+  "disk_mb": 141,
+  "memory_mb": 500,
+  "accuracy": 2,
+  "speed": 3,
+  "words": false
+}

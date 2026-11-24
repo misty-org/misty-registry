@@ -1,0 +1,34 @@
+{
+  "id": "photocraft",
+  "name": "PhotoCraft",
+  "description": "Open-source image editor",
+  "maker": "storytold",
+  "upstream": "storytold/photocraft",
+  "web_asset": "photocraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.photocraft.png",
+  "manifest": {
+    "name": "PhotoCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "image/*",
+      ".psd"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

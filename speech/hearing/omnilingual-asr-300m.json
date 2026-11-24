@@ -1,0 +1,29 @@
+{
+  "id": "omnilingual-asr-300m",
+  "name": "Omnilingual ASR 300M",
+  "maker": "Meta",
+  "source": "https://github.com/facebookresearch/omnilingual-asr",
+  "license": "Apache-2.0",
+  "description": "Over 1,600 languages, for those nothing else covers",
+  "languages": [
+    "*"
+  ],
+  "detects_language": true,
+  "family": "omnilingual_ctc",
+  "package": {
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-v2-int8-2026-02-05.tar.bz2",
+    "sha256": "951b32409aade32bd525310bb39e9666773ba3fc611a39e817f620936d76c631",
+    "size": 292313120,
+    "kind": "tar.bz2",
+    "folder": "sherpa-onnx-omnilingual-asr-1600-languages-300M-ctc-v2-int8-2026-02-05"
+  },
+  "files": {
+    "model": "model.int8.onnx",
+    "tokens": "tokens.txt"
+  },
+  "disk_mb": 366,
+  "memory_mb": 900,
+  "accuracy": 1,
+  "speed": 2,
+  "words": false
+}

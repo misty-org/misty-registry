@@ -1,0 +1,9 @@
+{
+  "id": "mermaid-live-editor",
+  "name": "Mermaid live editor",
+  "upstream": "mermaid-js/mermaid-live-editor",
+  "ref": "develop",
+  "commit": "e615c591355169c33a8122f450bf48cd41968aa3",
+  "version": "2.0.67",
+  "license": "MIT"
+}

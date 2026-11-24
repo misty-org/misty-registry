@@ -1,0 +1,23 @@
+{
+  "id": "mermaid-live-editor",
+  "build": true,
+  "name": "Mermaid live editor",
+  "description": "Diagrams written as text in Mermaid, edited together live",
+  "maker": "Mermaid",
+  "icon": "static/favicon.svg",
+  "manifest": {
+    "name": "Mermaid live editor",
+    "logo": "favicon.svg",
+    "entry": "index.html",
+    "opens": [".mmd", ".mermaid"],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "network": [],
+    "permissions": ["files", "rooms"],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js",
+    "collab": "adapter"
+  },
+  "strip_top": false
+}

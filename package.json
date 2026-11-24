@@ -1,0 +1,17 @@
+{
+  "name": "misty-registry",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "refresh": "node scripts/refresh.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "check": "npm run validate && npm run test",
+    "build": "node scripts/build.mjs",
+    "publish:sign": "node scripts/publish.mjs",
+    "keygen": "node scripts/keygen.mjs",
+    "build:apps": "node scripts/build_apps.mjs",
+    "ship:apps": "node scripts/ship_builds.mjs"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "kokoro-heart",
+  "name": "Heart",
+  "maker": "hexgrad (Kokoro)",
+  "source": "https://huggingface.co/hexgrad/Kokoro-82M",
+  "license": "Apache-2.0",
+  "languages": [
+    "en"
+  ],
+  "accent": "US",
+  "gender": "female",
+  "family": "kokoro",
+  "package": {
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-int8-multi-lang-v1_0.tar.bz2",
+    "sha256": "72c347230107ef8a31098ec4d468a605244beef5f1ed00db97efa13518800653",
+    "size": 132353410,
+    "kind": "tar.bz2",
+    "folder": "kokoro-int8-multi-lang-v1_0"
+  },
+  "files": {
+    "model": "model.int8.onnx",
+    "voices": "voices.bin",
+    "tokens": "tokens.txt",
+    "lexicon": "lexicon-us-en.txt,lexicon-zh.txt",
+    "dict": "dict"
+  },
+  "speaker": 3,
+  "disk_mb": 190,
+  "memory_mb": 700
+}

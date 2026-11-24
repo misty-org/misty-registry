@@ -1,0 +1,10 @@
+{
+  "id": "gemini",
+  "name": "Gemini CLI",
+  "maker": "Google",
+  "source": "https://www.npmjs.com/package/@google/gemini-cli",
+  "install": {
+    "route": "npm",
+    "npm": "@google/gemini-cli"
+  }
+}

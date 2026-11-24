@@ -1,0 +1,7 @@
+{
+  "id": "grok",
+  "name": "Grok CLI",
+  "install": {
+    "route": "none"
+  }
+}

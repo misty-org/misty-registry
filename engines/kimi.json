@@ -1,0 +1,10 @@
+{
+  "id": "kimi",
+  "name": "Kimi CLI",
+  "maker": "Moonshot AI",
+  "source": "https://www.npmjs.com/package/@moonshot-ai/kimi-code",
+  "install": {
+    "route": "npm",
+    "npm": "@moonshot-ai/kimi-code"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "agy",
+  "name": "Antigravity",
+  "maker": "Google",
+  "source": "https://antigravity.google",
+  "install": {
+    "route": "maker-build"
+  }
+}

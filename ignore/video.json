@@ -1,0 +1,27 @@
+{
+  "id": "video",
+  "name": "Video",
+  "markers": [
+    "*.prproj",
+    "*.aep",
+    "*.drp",
+    "*.fcpbundle",
+    "*.kdenlive",
+    "*.veg"
+  ],
+  "rules": [
+    "Adobe Premiere Pro Auto-Save/",
+    "Adobe After Effects Auto-Save/",
+    "Media Cache/",
+    "Media Cache Files/",
+    "Peak Files/",
+    "*.pek",
+    "*.cfa",
+    "*.ims",
+    "Render Files/",
+    "Transcoded Media/",
+    "Proxy Media/",
+    "CacheClip/",
+    "*.fcpcache/"
+  ]
+}

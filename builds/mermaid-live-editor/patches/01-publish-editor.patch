@@ -1,0 +1,13 @@
+diff --git a/src/lib/components/DesktopEditor.svelte b/src/lib/components/DesktopEditor.svelte
+index c3a1158..2000027 100644
+--- a/src/lib/components/DesktopEditor.svelte
++++ b/src/lib/components/DesktopEditor.svelte
+@@ -129,6 +129,8 @@
+     initEditor(monaco);
+     errorDebug();
+     editor = monaco.editor.create(divElement, editorOptions);
++    (window as unknown as { mistyMonaco?: unknown }).mistyMonaco = { editor, mermaidModel, monaco };
++    window.dispatchEvent(new Event('misty-monaco'));
+     aiPromptManager.setEditor(editor);
+     decorationsCollection = editor.createDecorationsCollection([]);
+ 

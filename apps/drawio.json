@@ -1,0 +1,24 @@
+{
+  "id": "drawio",
+  "name": "draw.io",
+  "description": "Open-source diagram editor, drawn on together live",
+  "maker": "JGraph",
+  "upstream": "jgraph/drawio",
+  "web_asset": "draw.war",
+  "icon": "src/main/webapp/images/drawlogo256.png",
+  "manifest": {
+    "name": "draw.io",
+    "logo": "images/drawlogo256.png",
+    "entry": "index.html",
+    "opens": [".drawio", ".drawio.svg", "application/vnd.jgraph.mxfile"],
+    "own_origin": true,
+    "inline_scripts": false,
+    "shim": false,
+    "network": [],
+    "permissions": ["files", "rooms"],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js",
+    "collab": "adapter"
+  },
+  "strip_top": false
+}

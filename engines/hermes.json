@@ -1,0 +1,9 @@
+{
+  "id": "hermes",
+  "name": "Hermes Agent",
+  "maker": "Nous Research",
+  "source": "https://github.com/NousResearch/hermes-agent",
+  "install": {
+    "route": "script"
+  }
+}

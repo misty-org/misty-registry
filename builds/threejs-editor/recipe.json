@@ -1,0 +1,10 @@
+{
+  "id": "threejs-editor",
+  "name": "three.js editor",
+  "upstream": "mrdoob/three.js",
+  "ref": "r187",
+  "commit": "7e89746a687bb88271253698fa108b1dd59825d0",
+  "version": "r187",
+  "license": "MIT",
+  "paths": ["build", "editor", "examples/jsm", "files", "LICENSE"]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "vectorcraft",
+  "name": "VectorCraft",
+  "description": "Open-source vector illustration",
+  "maker": "storytold",
+  "upstream": "storytold/vectorcraft",
+  "web_asset": "vectorcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.vectorcraft.png",
+  "manifest": {
+    "name": "VectorCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [
+      "image/svg+xml"
+    ],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

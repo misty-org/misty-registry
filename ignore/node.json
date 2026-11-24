@@ -1,0 +1,30 @@
+{
+  "id": "node",
+  "name": "Node",
+  "markers": [
+    "package.json"
+  ],
+  "rules": [
+    "node_modules/",
+    "npm-debug.log*",
+    "yarn-debug.log*",
+    "yarn-error.log*",
+    "pnpm-debug.log*",
+    ".npm/",
+    ".yarn/cache/",
+    ".yarn/install-state.gz",
+    ".eslintcache",
+    ".stylelintcache",
+    "*.tsbuildinfo",
+    ".next/",
+    ".nuxt/",
+    ".svelte-kit/",
+    ".turbo/",
+    ".vercel/",
+    ".parcel-cache/",
+    "dist/",
+    "build/",
+    "coverage/",
+    "storybook-static/"
+  ]
+}

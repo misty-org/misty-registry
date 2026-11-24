@@ -1,0 +1,6 @@
+misty-excalidraw packages Excalidraw (https://github.com/excalidraw/excalidraw), MIT License,
+Copyright (c) 2020 Excalidraw, unchanged from its published npm package @excalidraw/excalidraw, with its fonts,
+and its Mermaid converter @excalidraw/mermaid-to-excalidraw, MIT License, Copyright (c) 2023 Excalidraw.
+icon.png is Excalidraw's own logo, drawn from the artwork in @excalidraw/excalidraw.
+The way the board syncs over a shared Yjs document follows plugNmeet's Excalidraw collaboration
+(https://github.com/mynaparrot/plugNmeet-client), MIT License, Copyright (c) 2022 MynaParrot; no code is copied.

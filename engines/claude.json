@@ -1,0 +1,10 @@
+{
+  "id": "claude",
+  "name": "Claude Code",
+  "maker": "Anthropic",
+  "source": "https://github.com/anthropics/claude-code",
+  "install": {
+    "route": "maker-build",
+    "npm": "@anthropic-ai/claude-code"
+  }
+}

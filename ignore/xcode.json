@@ -1,0 +1,23 @@
+{
+  "id": "xcode",
+  "name": "Xcode",
+  "markers": [
+    "*.xcodeproj/",
+    "*.xcworkspace/",
+    "Package.swift"
+  ],
+  "rules": [
+    "DerivedData/",
+    "build/",
+    ".build/",
+    "xcuserdata/",
+    "*.xcuserstate",
+    "*.xcscmblueprint",
+    "*.xccheckout",
+    "Pods/",
+    "Carthage/Build/",
+    "*.ipa",
+    "*.dSYM",
+    "*.dSYM.zip"
+  ]
+}

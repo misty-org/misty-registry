@@ -1,0 +1,23 @@
+{
+  "id": "cyberchef",
+  "name": "CyberChef",
+  "description": "GCHQ's open-source data kitchen: encode, decode and analyze",
+  "maker": "GCHQ",
+  "upstream": "gchq/CyberChef",
+  "web_asset": "CyberChef_*.zip",
+  "icon": "src/web/static/images/logo/cyberchef.svg",
+  "manifest": {
+    "name": "CyberChef",
+    "logo": "images/cyberchef-128x128.png",
+    "entry": "CyberChef_v{version}.html",
+    "opens": [],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "network": [],
+    "permissions": [],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "strip_top": false
+}

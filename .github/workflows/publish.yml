@@ -1,0 +1,60 @@
+name: publish
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run check
+  publish:
+    needs: check
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      REGISTRY_BUCKET: misty-registry
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build each app that isn't hosted yet and upload it
+        run: node scripts/ship_builds.mjs
+      - name: Pin the hosted builds
+        run: |
+          set -euo pipefail
+          ids=$(node -e 'import("./scripts/build_apps.mjs").then((m) => console.log(m.recipeIds().join(" ")))')
+          node scripts/refresh.mjs $ids
+        env:
+          REGISTRY_BUILDS_URL: https://registry.mistysys.com/apps
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: npm run build
+      - run: npm run check
+      - name: Commit the new pins
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- apps.json registry.json; then echo "Every built app's pin is current."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps.json registry.json
+          git commit -m "chore(registry): pin the apps the registry built"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Sign the registry
+        run: node scripts/publish.mjs
+        env:
+          REGISTRY_SIGNING_KEY: ${{ secrets.REGISTRY_SIGNING_KEY }}
+          REGISTRY_KEY_ID: ${{ vars.REGISTRY_KEY_ID || 'misty-registry' }}
+      - name: Upload the signed registry
+        run: node scripts/r2.mjs put registry.jws.json site/registry.jws.json application/json "public, max-age=300"

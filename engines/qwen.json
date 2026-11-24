@@ -1,0 +1,10 @@
+{
+  "id": "qwen",
+  "name": "Qwen Code",
+  "maker": "Qwen",
+  "source": "https://www.npmjs.com/package/@qwen-code/qwen-code",
+  "install": {
+    "route": "npm",
+    "npm": "@qwen-code/qwen-code"
+  }
+}

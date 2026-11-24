@@ -1,0 +1,23 @@
+{
+  "id": "threejs-editor",
+  "build": true,
+  "name": "three.js editor",
+  "description": "The three.js 3D scene editor, built on together live",
+  "maker": "three.js authors",
+  "icon": "editor/images/icon.png",
+  "manifest": {
+    "name": "three.js editor",
+    "logo": "editor/images/icon.png",
+    "entry": "editor/index.html",
+    "opens": [".three"],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "network": [{ "host": "cdn.jsdelivr.net" }],
+    "permissions": ["files", "rooms"],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js",
+    "collab": "adapter"
+  },
+  "strip_top": false
+}

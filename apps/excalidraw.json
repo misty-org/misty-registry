@@ -1,0 +1,21 @@
+{
+  "id": "excalidraw",
+  "build": true,
+  "name": "Excalidraw",
+  "description": "Open-source whiteboard, drawn on together live",
+  "maker": "Excalidraw",
+  "icon": "public/apple-touch-icon.png",
+  "manifest": {
+    "name": "Excalidraw",
+    "logo": "icon.png",
+    "entry": "index.html",
+    "opens": [".excalidraw", "application/vnd.excalidraw+json"],
+    "own_origin": true,
+    "inline_scripts": false,
+    "shim": false,
+    "permissions": ["files", "rooms"],
+    "collab": "room",
+    "mcp": "frame"
+  },
+  "strip_top": false
+}

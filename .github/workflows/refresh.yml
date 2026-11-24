@@ -1,0 +1,38 @@
+name: refresh
+# Moves each app's pin to its maker's latest release and opens a pull request. Once it is merged, publish.yml signs
+# the registry and every Misty picks it up within a day.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/refresh.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: npm run build
+      - run: npm run check
+      - name: Open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet apps.json; then echo "Every pin is current."; exit 0; fi
+          branch="refresh/$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add apps.json registry.json
+          git commit -m "Move pins to the makers' latest releases"
+          git push origin "$branch"
+          gh pr create --base main --title "Move pins to the makers' latest releases" \
+            --body "Each pin now names the maker's own release asset and its checksum. Check an app opens a file and saves back before merging."

@@ -1,0 +1,8 @@
+{
+  "id": "qoder-cn",
+  "name": "Qoder CLI (China)",
+  "maker": "Qoder",
+  "install": {
+    "route": "none"
+  }
+}

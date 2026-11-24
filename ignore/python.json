@@ -1,0 +1,28 @@
+{
+  "id": "python",
+  "name": "Python",
+  "markers": [
+    "pyproject.toml",
+    "requirements.txt",
+    "setup.py",
+    "Pipfile"
+  ],
+  "rules": [
+    "__pycache__/",
+    "*.py[cod]",
+    ".venv/",
+    "venv/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".ruff_cache/",
+    ".tox/",
+    ".nox/",
+    ".coverage",
+    "htmlcov/",
+    "*.egg-info/",
+    ".eggs/",
+    "build/",
+    "dist/",
+    ".ipynb_checkpoints/"
+  ]
+}

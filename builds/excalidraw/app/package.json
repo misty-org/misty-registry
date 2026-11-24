@@ -1,0 +1,29 @@
+{
+  "name": "misty-excalidraw",
+  "version": "0.2.0",
+  "description": "Excalidraw for a Misty Space: everyone in the Space draws on the same board, live.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && node scripts/copy_fonts.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "@excalidraw/excalidraw": "0.18.0",
+    "@excalidraw/mermaid-to-excalidraw": "1.1.2",
+    "@misty/sdk": "file:../misty-sdk/packages/sdk",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "y-protocols": "^1.0.6",
+    "yjs": "^13.6.20"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}

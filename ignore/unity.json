@@ -1,0 +1,28 @@
+{
+  "id": "unity",
+  "name": "Unity",
+  "markers": [
+    "ProjectSettings/"
+  ],
+  "rules": [
+    "/[Ll]ibrary/",
+    "/[Tt]emp/",
+    "/[Oo]bj/",
+    "/[Bb]uild/",
+    "/[Bb]uilds/",
+    "/[Ll]ogs/",
+    "/[Uu]ser[Ss]ettings/",
+    "/[Mm]emoryCaptures/",
+    "*.csproj",
+    "*.unityproj",
+    "*.sln",
+    "*.suo",
+    "*.user",
+    "*.pidb",
+    "*.pdb",
+    "*.mdb",
+    "*.opendb",
+    "*.VC.db",
+    "crashlytics-build.properties"
+  ]
+}

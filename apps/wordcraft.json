@@ -1,0 +1,31 @@
+{
+  "id": "wordcraft",
+  "name": "WordCraft",
+  "description": "Open-source word processor",
+  "maker": "storytold",
+  "upstream": "storytold/wordcraft",
+  "web_asset": "wordcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.wordcraft.png",
+  "manifest": {
+    "name": "WordCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}

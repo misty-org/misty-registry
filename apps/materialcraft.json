@@ -1,0 +1,31 @@
+{
+  "id": "materialcraft",
+  "name": "MaterialCraft",
+  "description": "Open-source node-based procedural materials",
+  "maker": "storytold",
+  "upstream": "storytold/materialcraft",
+  "web_asset": "materialcraft-web-{version}.zip",
+  "icon": "assets/app-icon/hicolor/256x256/apps/ai.storyteller.materialcraft.png",
+  "manifest": {
+    "name": "MaterialCraft",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [],
+    "own_origin": true,
+    "inline_scripts": true,
+    "shim": false,
+    "permissions": [
+      "files"
+    ],
+    "mcp": "adapter",
+    "adapter": "misty/adapter.js"
+  },
+  "adapter_shared": "craft",
+  "add_copies": [
+    {
+      "from": "snippets",
+      "to": "app/snippets"
+    }
+  ],
+  "strip_top": true
+}
