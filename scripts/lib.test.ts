@@ -42,11 +42,10 @@ import { readFileSync } from "node:fs";
 import { engineProblems, speechProblems } from "./lib.ts";
 
 const parakeet = JSON.parse(readFileSync(new URL("../speech/hearing/parakeet-tdt-0-6b-v3.json", import.meta.url), "utf8"));
-const heart = JSON.parse(readFileSync(new URL("../speech/voices/kokoro-heart.json", import.meta.url), "utf8"));
 
-test("the listed speech models and voices have no problems", () => {
+test("the listed speech models have no problems", () => {
   assert.deepEqual(speechProblems(parakeet, "hearing"), []);
-  assert.deepEqual(speechProblems(heart, "voices"), []);
+  assert.notDeepEqual(speechProblems(parakeet, "voices"), []);
 });
 
 test("a speech model that isn't open, or comes from elsewhere, is refused", () => {
@@ -59,7 +58,6 @@ test("a speech model that isn't open, or comes from elsewhere, is refused", () =
     { ...parakeet, package: { ...parakeet.package, sha256: "x" } },
     { ...parakeet, files: { encoder: "../encoder.onnx" } },
   ]) assert.notDeepEqual(speechProblems(bad, "hearing"), []);
-  assert.notDeepEqual(speechProblems({ ...heart, gender: "unknown" }, "voices"), []);
 });
 
 test("an engine entry says only how it installs", () => {
@@ -186,8 +184,6 @@ test("what the blob steps add to the index is a blob on the registry, named by i
   assert.notDeepEqual(entryProblems({ ...mirrored, logo_source: "https://example.com/icon.png" }), []);
   assert.notDeepEqual(entryProblems({ ...mirrored, logo: "https://example.com/icon.png" }), []);
   assert.notDeepEqual(entryProblems({ ...mirrored, screenshots: ["https://example.com/shot.png"] }), []);
-  assert.deepEqual(speechProblems({ ...heart, sample: { ...blob, type: "audio/mpeg" } }, "voices"), []);
-  assert.notDeepEqual(speechProblems({ ...heart, sample: { ...blob, type: "video/mp4" } }, "voices"), []);
   assert.notDeepEqual(speechProblems({ ...parakeet, sample: { ...blob, type: "audio/mpeg" } }, "hearing"), []);
   assert.equal(makerLogin(skill), "anthropics");
   assert.equal(makerLogin({ registry: { name: "io.github.ChromeDevTools/chrome-devtools-mcp" } }), "chromedevtools");

@@ -90,6 +90,31 @@ function site(config) {
 
 const BUILDS_URL = (process.env.REGISTRY_BUILDS_URL ?? "").replace(/\/+$/, "");
 
+async function releaseBuilds(upstream, release, names) {
+  const version = release.tag_name.replace(/^v/, "");
+  const builds = {};
+  for (const [platform, pattern] of Object.entries(names ?? {})) {
+    const file = pattern.replace("{version}", version);
+    const build = release.assets.find((candidate) => candidate.name === file);
+    if (!build) throw new Error(`${upstream} ${release.tag_name} has no ${file} for ${platform}`);
+    if (!String(build.digest ?? "").startsWith("sha256:")) throw new Error(`${file} has no checksum from GitHub`);
+    builds[platform] = { url: build.browser_download_url, sha256: build.digest.slice("sha256:".length), size: build.size };
+  }
+  return builds;
+}
+
+async function serverProgramOf(config, upstream, release) {
+  if (!config.server_program) return {};
+  const { builds: names, ...rest } = config.server_program;
+  return { server_program: { ...rest, builds: await releaseBuilds(upstream, release, names) } };
+}
+
+async function releaseAt(upstream, tag) {
+  const response = await fetch(`https://api.github.com/repos/${upstream}/releases/tags/${encodeURIComponent(tag)}`, { headers });
+  if (!response.ok) throw new Error(`${upstream}: release ${tag} answered ${response.status}`);
+  return response.json();
+}
+
 async function built(config) {
   const recipePath = join(root, "builds", config.id, "recipe.json");
   if (!existsSync(recipePath)) throw new Error(`${config.id}: builds/${config.id}/recipe.json is missing`);
@@ -106,6 +131,8 @@ async function built(config) {
   const url = BUILDS_URL
     ? `${BUILDS_URL}/${made.zip}`
     : pathToFileURL(join(root, "work", "builds", made.zip)).href;
+  if (config.server_program && !recipe.ref) throw new Error(`${config.id}: a built app with a server names its release tag as ref`);
+  const server = config.server_program ? await serverProgramOf(config, recipe.upstream, await releaseAt(recipe.upstream, recipe.ref)) : {};
   const entry = {
     id: config.id,
     name: config.name,
@@ -124,6 +151,7 @@ async function built(config) {
     ...(config.icon_render ? { icon_render: config.icon_render } : {}),
     permissions: config.manifest.permissions,
     manifest: versioned(config.manifest, recipe.version),
+    ...server,
     add_copies: config.add_copies ?? [],
     strip_top: config.strip_top ?? false,
     ...adapterOf(config, { local: !BUILDS_URL }),
@@ -152,16 +180,9 @@ async function pin(listed) {
   let mcpProgram;
   if (config.mcp_program) {
     const { builds: names, ...rest } = config.mcp_program;
-    const builds = {};
-    for (const [platform, pattern] of Object.entries(names ?? {})) {
-      const file = pattern.replace("{version}", version);
-      const build = release.assets.find((candidate) => candidate.name === file);
-      if (!build) throw new Error(`${config.upstream} ${tag} has no ${file} for ${platform}`);
-      if (!String(build.digest ?? "").startsWith("sha256:")) throw new Error(`${file} has no checksum from GitHub`);
-      builds[platform] = { url: build.browser_download_url, sha256: build.digest.slice("sha256:".length), size: build.size };
-    }
-    mcpProgram = { ...rest, builds };
+    mcpProgram = { ...rest, builds: await releaseBuilds(config.upstream, release, names) };
   }
+  const server = await serverProgramOf(config, config.upstream, release);
   // What the release says it is licensed under: both files is a choice of either.
   const mit = await exists(`${raw}/LICENSE-MIT`);
   const apache = await exists(`${raw}/LICENSE-APACHE`);
@@ -193,6 +214,7 @@ async function pin(listed) {
     permissions: config.manifest.permissions,
     manifest: versioned(config.manifest, version),
     ...(mcpProgram ? { mcp_program: mcpProgram } : {}),
+    ...server,
     add_copies: config.add_copies ?? [],
     strip_top: config.strip_top ?? false,
     // An adapter written here (`apps/<id>/adapter.js`) gives an app with no tools of its own its MCP tools; Misty
@@ -234,7 +256,7 @@ for (const file of readdirSync(join(root, "apps")).filter((name) => name.endsWit
       console.log(`${config.id}: not built here, keeps its pin`);
       continue;
     }
-    if (entry.url.startsWith("file:")) {
+    if (entry.url?.startsWith("file:")) {
       local.set(config.id, entry);
       console.log(`${config.id}: ${entry.version} (local build, in work/apps.local.json)`);
       continue;

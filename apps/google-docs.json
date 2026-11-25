@@ -1,0 +1,31 @@
+{
+  "kind": "site",
+  "id": "google-docs",
+  "name": "Google Docs",
+  "description": "Documents written and commented on together",
+  "maker": "Google",
+  "version": "1.0.0",
+  "address": "https://docs.google.com/document/",
+  "origins": [
+    "https://docs.google.com",
+    "https://*.google.com",
+    "https://accounts.youtube.com",
+    "https://ssl.gstatic.com"
+  ],
+  "icon": "https://ssl.gstatic.com/docs/documents/images/kix-favicon-2023q4.ico",
+  "platforms": [
+    "macos"
+  ],
+  "media": {
+    "macos": {
+      "drm": false
+    }
+  },
+  "manifest": {
+    "name": "Google Docs",
+    "permissions": [],
+    "platforms": [
+      "macos"
+    ]
+  }
+}

@@ -56,7 +56,6 @@ function forget(name: string, groups: (data: any) => Record<string, any>[], blob
 
 forget("bundles.json", (data) => [data.skills ?? {}, data.templates ?? {}, data.plugins ?? {}], (record) => record.bundle?.sha256);
 forget("images.json", (data) => [data.images ?? {}, data.avatars ?? {}], (record) => record.sha256);
-forget("samples.json", (data) => [data.voices ?? {}], (record) => record.sample?.sha256);
 
 console.log(`blobs: ${uploaded} uploaded, ${already} of the ${local.size} made here already hosted`);
 if (failed) process.exitCode = 1;

@@ -1,0 +1,29 @@
+{
+  "kind": "site",
+  "id": "twitch",
+  "name": "Twitch",
+  "description": "Live streams, chat and clips",
+  "maker": "Twitch",
+  "version": "1.0.0",
+  "address": "https://www.twitch.tv/",
+  "origins": [
+    "https://www.twitch.tv",
+    "https://*.twitch.tv"
+  ],
+  "icon": "https://www.twitch.tv/favicon.ico",
+  "platforms": [
+    "macos"
+  ],
+  "media": {
+    "macos": {
+      "drm": false
+    }
+  },
+  "manifest": {
+    "name": "Twitch",
+    "permissions": [],
+    "platforms": [
+      "macos"
+    ]
+  }
+}

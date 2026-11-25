@@ -1,0 +1,33 @@
+{
+  "id": "voicebox",
+  "build": true,
+  "name": "Voicebox",
+  "description": "Local voices for Misty and its agents: preset, designed or cloned",
+  "maker": "Jamie Pine",
+  "icon": "tauri/src-tauri/icons/128x128@2x.png",
+  "manifest": {
+    "name": "Voicebox",
+    "logo": "logo.png",
+    "entry": "index.html",
+    "opens": [],
+    "own_origin": true,
+    "inline_scripts": false,
+    "shim": true,
+    "network": [],
+    "permissions": [],
+    "server": true
+  },
+  "server_program": {
+    "program": "voicebox-server",
+    "args": ["--host", "127.0.0.1", "--port", "{port}", "--data-dir", "{data}", "--parent-pid", "{parent}"],
+    "ready": "Uvicorn running on",
+    "env": {
+      "VOICEBOX_CORS_ORIGINS": "misty-app://voicebox"
+    },
+    "builds": {
+      "macos-aarch64": "Voicebox_aarch64.app.tar.gz",
+      "macos-x86_64": "Voicebox_x64.app.tar.gz"
+    }
+  },
+  "strip_top": false
+}

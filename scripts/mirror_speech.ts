@@ -16,7 +16,7 @@ const record = new URL("work/speech_mirrors.json", root);
 
 const kept: Record<string, string> = existsSync(record) ? JSON.parse(readFileSync(record, "utf8")).mirrors ?? {} : {};
 const packages = new Map<string, { url: string; size: number; ids: string[] }>();
-for (const group of ["hearing", "voices", "support"]) {
+for (const group of ["hearing", "support"]) {
   const folder = new URL(`speech/${group}/`, root);
   for (const name of readdirSync(folder).filter((one) => one.endsWith(".json")).sort()) {
     const entry = JSON.parse(readFileSync(new URL(name, folder), "utf8"));

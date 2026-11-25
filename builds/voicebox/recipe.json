@@ -1,0 +1,18 @@
+{
+  "id": "voicebox",
+  "name": "Voicebox",
+  "upstream": "jamiepine/voicebox",
+  "ref": "v0.6.0",
+  "commit": "7b570438da7565e849ec08b16a469339985eaf8c",
+  "version": "0.6.0",
+  "license": "MIT",
+  "paths": [
+    "app",
+    "web",
+    "package.json",
+    "bun.lock",
+    "CHANGELOG.md",
+    "LICENSE",
+    "tauri/src-tauri/icons/128x128@2x.png"
+  ]
+}

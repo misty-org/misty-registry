@@ -15,7 +15,6 @@
     "crawl": "node scripts/crawl.ts",
     "bundle": "node scripts/bundle.ts",
     "images": "node scripts/mirror_images.ts",
-    "samples": "node scripts/voice_samples.ts",
     "add:mcp": "node scripts/add_mcp.ts",
     "discover": "node scripts/discover_sources.ts",
     "ship:index": "node scripts/ship_index.ts",

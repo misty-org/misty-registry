@@ -1,14 +1,15 @@
 # misty-registry
 
-The reviewed apps Misty lists for a Space, under the MIT license. Misty makes no apps of its own, and an app is one
-of two things, never a pasted address:
+The reviewed apps Misty lists in Explore, under the MIT license. A person installs an app on their own computer,
+where it opens in whichever Space their window shows. Misty makes no apps of its own, and an app is one of two
+things, never a pasted address:
 
-- **An open-source web build:** a maker's own release, which a Space mod adds by pasting its GitHub repository's
-  link (or from Explore once it is listed here). Each entry names the maker's own repository, the version it is
+- **An open-source web build:** a maker's own release, which a person gets from Explore once it is listed here.
+  Each entry names the maker's own repository, the version it is
   pinned to, the address of the maker's own release zip (or `.war`) as `source`, the checksum GitHub reports for it,
   and the maker's own icon. The registry keeps an unchanged copy of that zip beside its own builds, at
   `registry.mistysys.com/apps/<id>-<version>-<first 12 of the checksum>.zip` (the entry's `url`), so every app comes
-  from one place. Misty downloads it when a Space first opens the app, checks it against the pinned checksum (the
+  from one place. Misty downloads it when the person installs the app, checks it against the pinned checksum (the
   maker's own, so the copy can't differ from the release), and adds a small wrapper around it (`manifest`,
   `add_copies`, `strip_top`); the maker's files are not changed.
 - **A web build the registry makes** (`build: true`): for an MIT or Apache-2.0 app whose maker publishes no web
@@ -34,6 +35,13 @@ server runs (`mcp_program`) is still the maker's own release asset, downloaded f
   file name, its arguments, the maker's flags that keep it to a read and a write folder, any variables the maker
   documents for running headless, and which release archive holds it per platform. Refresh pins each archive like
   the web build; Misty takes only that one file out of it and runs it confined to a chat's folder.
+  An app that works through a local server of its maker's (`manifest.server` is `true`) adds `server_program`: the
+  program's file name, its arguments (`{port}`, `{data}` and `{parent}` stand for the port Misty picks, the app's
+  data folder and Misty's own process, which the server ends with), the line its log prints once it serves
+  (`ready`), any variables the maker documents, and which release archive holds it per platform. Refresh pins each
+  archive, for a built app from the release its recipe names as `ref`; Misty takes only that one file out, runs one
+  per computer on `127.0.0.1`, and lets only that app's page reach it. Voicebox is one: Misty's voice, everywhere it
+  speaks, comes from its server. A platform with no build has no server, and nothing that needs one is offered there.
 - `builds/<id>/`: how the registry builds an app, as small text files: `recipe.json` (the upstream repository, the
   exact commit, its version and license, the folders a sparse checkout needs, and `sdk`, the `misty-sdk` commit
   an app built on it uses), `build.sh` (run in the checkout with `OUT` to fill), `patches/*.patch` applied before
@@ -80,11 +88,9 @@ Installs and previews come from it, never from GitHub:
 - Each app's `logo`, `banner` and `screenshots`, and each listing's maker's face (`avatar`, their GitHub picture),
   are copies (`npm run images`); an app keeps the addresses they were copied from as `logo_source`, `banner_source`
   and `screenshots_source`.
-- Each voice carries `sample: { url, sha256, size, type }`, a few words in it rendered the way Misty speaks, with
-  sherpa-onnx and the voice's own pinned package (`npm run samples`).
 
-The steps write `work/blobs/` and `work/bundles.json`, `images.json` and `samples.json`, which `build` reads; an entry
-they have nothing for has none. `publish.yml` keeps those three files between runs, so what didn't change isn't made
+The steps write `work/blobs/` and `work/bundles.json` and `images.json`, which `build` reads; an entry
+they have nothing for has none. `publish.yml` keeps those files between runs, so what didn't change isn't made
 again, and uploads the new blobs (`scripts/ship_blobs.ts`) before it signs and uploads the index.
 
 **Git holds only what people write:** the sources, the apps, the MCP servers, the engines and speech models, and
@@ -198,17 +204,21 @@ Anyone can submit an app, or an integration for one, as a pull request here:
 
 There is nothing to pin: refresh carries the entry as it is, naming its adapter by address and checksum
 (`adapter`), which the registry's signature covers. Nobody's session is shared or sent anywhere: each person signs in on their own computer.
-YouTube Music is the first: what's playing, play, pause, skip and the queue for agents, and listening together over
-the Space's live room, where whoever plays, pauses or skips leads.
+YouTube Music is the first with an adapter: what's playing, play, pause, skip and the queue for agents, and listening
+together over the Space's live room, where whoever plays, pauses or skips leads.
 
-## Speech models, voices and engines
+The others are listed as they are, with no adapter yet: Figma, Canva, Photopea, Miro and tldraw for design; Notion,
+Google Docs, Sheets and Slides, Trello, Linear and Airtable for work; YouTube and Twitch to watch; Lichess, Gartic
+Phone and skribbl.io to play. Each one's `origins` hold its own hosts and the sign-in pages it sends people to (Google,
+Apple, Microsoft, Atlassian), and Cloudflare's check for the sites behind it, since a frame the page loads is held to
+the same origins as the page.
+
+## Speech models and engines
 
 Everything a person can add to Misty is listed here, and shows in Explore. Beside the apps:
 
 - `speech/hearing/<id>.json`: a speech recognition model Misty can hear with. Misty picks one for the person from
   their languages and what their computer can run; nobody has to choose.
-- `speech/voices/<id>.json`: a voice Misty and agents can speak in. A person picks each agent's voice when they make
-  it, and Misty's own in setup.
 - `speech/support/<id>.json`: what every hearing model needs beside it, such as Silero VAD, which finds where speech
   starts and ends.
 - `engines/<id>.json`: how Misty installs an engine's CLI and where it comes from, and nothing else. An engine's

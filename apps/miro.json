@@ -1,0 +1,33 @@
+{
+  "kind": "site",
+  "id": "miro",
+  "name": "Miro",
+  "description": "Whiteboards for planning and workshops",
+  "maker": "Miro",
+  "version": "1.0.0",
+  "address": "https://miro.com/app/dashboard/",
+  "origins": [
+    "https://miro.com",
+    "https://*.miro.com",
+    "https://accounts.google.com",
+    "https://appleid.apple.com",
+    "https://login.microsoftonline.com",
+    "https://login.live.com"
+  ],
+  "icon": "https://miro.com/favicon.ico",
+  "platforms": [
+    "macos"
+  ],
+  "media": {
+    "macos": {
+      "drm": false
+    }
+  },
+  "manifest": {
+    "name": "Miro",
+    "permissions": [],
+    "platforms": [
+      "macos"
+    ]
+  }
+}

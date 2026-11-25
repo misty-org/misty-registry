@@ -1,8 +1,8 @@
 // Gathers every entry into the index: index.min.json, which publish.ts signs for every Misty, and the shards its
 // listings are read from. Nothing of it is committed; it is built from the folders each time. Each section is built from its own folder; apps are the pins refresh wrote.
 // What the blob steps made, when they have run, goes in too: each listing's `bundle` and its maker's `avatar`
-// (bundle.ts, mirror_images.ts), each app's pictures as blobs with their addresses kept as `<field>_source`, and each
-// voice's `sample` (voice_samples.ts). An entry they have nothing for simply has none.
+// (bundle.ts, mirror_images.ts), and each app's pictures as blobs with their addresses kept as `<field>_source`. An
+// entry they have nothing for simply has none.
 //   node scripts/build.ts          writes site/index.min.json and site/index/ (unsigned, for trying it locally)
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
@@ -92,7 +92,6 @@ export function built() {
   };
   const bundles = made("bundles.json");
   const images = made("images.json");
-  const samples = made("samples.json");
   const mirrors: Record<string, string> = made("speech_mirrors.json")?.mirrors ?? {};
   const mirrored = (entry: any) =>
     mirrors[entry.package?.sha256] ? { ...entry, package: { ...entry.package, mirror: mirrors[entry.package.sha256] } } : entry;
@@ -119,11 +118,6 @@ export function built() {
       engines: section("engines", entries("engines")),
       speech: section("speech", {
         hearing: entries("speech/hearing").map(mirrored),
-        voices: entries("speech/voices").map((voice) => {
-          const one = samples?.voices?.[voice.id];
-          const current = one?.sample && one.package === voice.package?.sha256 && one.speaker === voice.speaker;
-          return mirrored(current ? { ...voice, sample: one.sample } : voice);
-        }),
         support: entries("speech/support").map(mirrored),
       }),
       ignore: section("ignore", entries("ignore")),

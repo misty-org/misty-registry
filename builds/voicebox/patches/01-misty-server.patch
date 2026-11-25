@@ -1,0 +1,58 @@
+--- a/app/src/router.tsx
++++ b/app/src/router.tsx
+@@ -1,10 +1,12 @@
+ import {
++  createHashHistory,
+   createRootRoute,
+   createRoute,
+   createRouter,
+   Outlet,
+   redirect,
+ } from '@tanstack/react-router';
++import { mistyServerUrl } from '@/stores/serverStore';
+ import { AppFrame } from '@/components/AppFrame/AppFrame';
+ import { CapturesTab } from '@/components/CapturesTab/CapturesTab';
+ import { EffectsTab } from '@/components/EffectsTab/EffectsTab';
+@@ -221,7 +223,10 @@
+ ]);
+ 
+ // Create router
+-export const router = createRouter({ routeTree });
++export const router = createRouter({
++  routeTree,
++  ...(mistyServerUrl() ? { history: createHashHistory() } : {}),
++});
+ 
+ // Register router for type safety
+ declare module '@tanstack/react-router' {
+--- a/app/src/stores/serverStore.ts
++++ b/app/src/stores/serverStore.ts
+@@ -27,8 +27,16 @@
+   queryClient.invalidateQueries();
+ }
+ 
++export function mistyServerUrl(): string | undefined {
++  if (typeof window === 'undefined') return undefined;
++  const url = (window as { __MISTY_APP_SERVER__?: unknown }).__MISTY_APP_SERVER__;
++  return typeof url === 'string' && url !== '' ? url : undefined;
++}
++
+ export function getDefaultServerUrl(): string {
+   const fallback = 'http://127.0.0.1:17493';
++  const misty = mistyServerUrl();
++  if (misty) return misty;
+ 
+   if (!import.meta.env.PROD || typeof window === 'undefined') {
+     return fallback;
+@@ -87,6 +95,11 @@
+     }),
+     {
+       name: 'voicebox-server',
++      merge: (persisted, current) => {
++        const merged = { ...current, ...(persisted as Partial<ServerStore>) };
++        const misty = mistyServerUrl();
++        return misty ? { ...merged, serverUrl: misty, mode: 'local' } : merged;
++      },
+     },
+   ),
+ );

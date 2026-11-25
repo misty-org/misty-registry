@@ -1,0 +1,35 @@
+{
+  "kind": "site",
+  "id": "trello",
+  "name": "Trello",
+  "description": "Boards of cards for tasks and projects",
+  "maker": "Atlassian",
+  "version": "1.0.0",
+  "address": "https://trello.com/",
+  "origins": [
+    "https://trello.com",
+    "https://*.trello.com",
+    "https://id.atlassian.com",
+    "https://*.atlassian.com",
+    "https://accounts.google.com",
+    "https://appleid.apple.com",
+    "https://login.microsoftonline.com",
+    "https://login.live.com"
+  ],
+  "icon": "https://trello.com/favicon.ico",
+  "platforms": [
+    "macos"
+  ],
+  "media": {
+    "macos": {
+      "drm": false
+    }
+  },
+  "manifest": {
+    "name": "Trello",
+    "permissions": [],
+    "platforms": [
+      "macos"
+    ]
+  }
+}

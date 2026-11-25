@@ -43,7 +43,7 @@ for (const id of described) {
 for (const id of seen) if (!described.includes(id)) problems.push(`${id}: pinned in index.min.json but not described in apps/`);
 // Speech models, voices and engines: each entry fit to ship, every id once, and the gathered files current.
 const speechIds = new Set();
-for (const group of ["hearing", "voices", "support"]) {
+for (const group of ["hearing", "support"]) {
   for (const name of readdirSync(new URL(`speech/${group}/`, root)).filter((file) => file.endsWith(".json"))) {
     const entry = JSON.parse(readFileSync(new URL(`speech/${group}/${name}`, root), "utf8"));
     problems.push(...speechProblems(entry, group));
@@ -107,13 +107,10 @@ if (Buffer.byteLength(JSON.stringify(index.root)) > MOST_ROOT_BYTES) problems.pu
 for (const [path, text] of Object.entries(index.shards)) {
   if (Buffer.byteLength(text) > MOST_SHARD_BYTES) problems.push(`${path}: a shard is past its size; split the listing`);
 }
-// What the index adds from the blob steps (bundles, faces, mirrored pictures, samples) is checked as it is published.
+// What the index adds from the blob steps (bundles, faces, mirrored pictures) is checked as it is published.
 const shard = (pointer: any) => JSON.parse(index.shards[pointer.path]);
 for (const app of shard(index.root.sections.apps).data) {
   if (app.logo_source !== undefined || app.banner_source !== undefined || app.screenshots_source !== undefined) problems.push(...entryProblems(app));
-}
-for (const voice of shard(index.root.sections.speech).data.voices) {
-  if (voice.sample !== undefined) problems.push(...speechProblems(voice, "voices"));
 }
 for (const [kind, check] of kinds) {
   for (const pointer of Object.values((index.root.listings as any)[kind].categories)) {
@@ -125,5 +122,5 @@ if (problems.length) {
   process.exit(1);
 }
 console.log(
-  `index.min.json: ${seen.size} app(s), ${counts.plugins.ids.size} plugin(s), ${counts.skills.ids.size} skill(s) and ${counts.templates.ids.size} agent template(s) and ${counts.mcps.ids.size} MCP server(s) by hand, and ${sourceIds.size} source(s), ${speechIds.size} speech model(s) and voice(s), ${ignoreIds.size} ignore template(s) valid.`,
+  `index.min.json: ${seen.size} app(s), ${counts.plugins.ids.size} plugin(s), ${counts.skills.ids.size} skill(s) and ${counts.templates.ids.size} agent template(s) and ${counts.mcps.ids.size} MCP server(s) by hand, and ${sourceIds.size} source(s), ${speechIds.size} speech model(s), ${ignoreIds.size} ignore template(s) valid.`,
 );

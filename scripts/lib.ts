@@ -79,6 +79,53 @@ function programProblems(app, upstream) {
   return problems;
 }
 
+export const MAX_SERVER_BYTES = 1024 * 1024 * 1024;
+const SERVER_PLACEHOLDERS = new Set(["{port}", "{data}", "{parent}"]);
+
+function serverProblems(app, upstream) {
+  const problems = [];
+  const need = (ok, text) => ok || problems.push(`${app?.id ?? "?"}: ${text}`);
+  const server = app.server_program;
+  need(app.manifest?.server === true, "an app with a server_program says server: true in its manifest");
+  need(
+    typeof server?.program === "string" && /^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/.test(server.program),
+    "server_program.program must be the program's file name, without a folder or extension",
+  );
+  const args = Array.isArray(server?.args) ? server.args : [];
+  need(
+    Array.isArray(server?.args) && args.length <= 24 &&
+      args.every((arg) => typeof arg === "string" && arg.length <= 100 && (!arg.includes("{") || SERVER_PLACEHOLDERS.has(arg))),
+    "server_program.args must be a few short arguments, with {port}, {data} and {parent} only as whole arguments",
+  );
+  need(args.includes("{port}"), "server_program.args must take the port Misty picks as {port}");
+  need(typeof server?.ready === "string" && server.ready.length > 0 && server.ready.length <= 100, "server_program.ready must be the line its log prints once it serves");
+  const reserved = new Set(["PATH", "HOME", "TMPDIR", "TMP", "TEMP", "LANG", "IFS"]);
+  need(
+    server?.env === undefined ||
+      (typeof server.env === "object" &&
+        Object.entries(server.env).every(
+          ([key, value]) =>
+            /^[A-Z0-9_]{1,64}$/.test(key) && !reserved.has(key) && !key.startsWith("LD_") && !key.startsWith("DYLD_") &&
+            typeof value === "string" && value.length <= 200,
+        )),
+    "server_program.env may set only the maker's own plain variables",
+  );
+  const builds = Object.entries(server?.builds ?? {});
+  need(builds.length > 0, "server_program needs a build for at least one platform");
+  for (const [platform, build] of builds) {
+    need(PLATFORMS.has(platform), `server_program platform ${platform} isn't one Misty runs on`);
+    need(
+      typeof build?.url === "string" &&
+        build.url.startsWith(`https://github.com/${upstream}/releases/download/`) &&
+        (build.url.endsWith(".zip") || build.url.endsWith(".tar.gz")),
+      `server_program ${platform} must be the maker's own .zip or .tar.gz release asset`,
+    );
+    need(typeof build?.sha256 === "string" && SHA256.test(build.sha256), `server_program ${platform} needs its sha256`);
+    need(Number.isInteger(build?.size) && build.size > 0 && build.size <= MAX_SERVER_BYTES, `server_program ${platform} size must be within the limit`);
+  }
+  return problems;
+}
+
 const SITE_PLATFORMS = new Set(["macos", "windows", "linux"]);
 const ORIGIN = /^https:\/\/(\*\.)?[a-z0-9-]+(\.[a-z0-9-]+)+$/;
 
@@ -101,9 +148,6 @@ export const SCRIPTS_ORIGIN = "https://registry.mistysys.com/files/";
 export const BLOBS_ORIGIN = "https://registry.mistysys.com/blobs/";
 /** The most a listing's bundle may be, compressed. */
 export const MAX_BUNDLE_BYTES = 64 * 1024 * 1024;
-/** The most a voice's sample may be. */
-export const MAX_SAMPLE_BYTES = 4 * 1024 * 1024;
-export const SAMPLE_TYPES = new Set(["audio/mpeg", "audio/wav"]);
 
 export const isBlobUrl = (url) => typeof url === "string" && url.startsWith(BLOBS_ORIGIN) && SHA256.test(url.slice(BLOBS_ORIGIN.length));
 
@@ -266,6 +310,8 @@ export function entryProblems(app, { local = false } = {}) {
     );
   }
   if (app?.mcp_program !== undefined) problems.push(...programProblems(app, upstream));
+  if (app?.server_program !== undefined) problems.push(...serverProblems(app, upstream));
+  need(app?.server_program !== undefined || app?.manifest?.server === undefined, "manifest server needs the app's server_program");
   need(Array.isArray(app?.add_copies) && app.add_copies.every((c) => safePath(c?.from) && safePath(c?.to)), "add_copies must be paths inside the bundle");
   need(app?.add_files === undefined || Array.isArray(app.add_files), "add_files must be a list");
   for (const file of Array.isArray(app?.add_files) ? app.add_files : []) {
@@ -276,11 +322,10 @@ export function entryProblems(app, { local = false } = {}) {
   return problems;
 }
 
-/** Licenses a speech model or voice may carry: open weights only, never non-commercial or behind an agreement. */
+/** Licenses a speech model may carry: open weights only, never non-commercial or behind an agreement. */
 export const MODEL_LICENSES = new Set(["Apache-2.0", "MIT", "CC-BY-4.0", "CC0-1.0", "BSD-3-Clause"]);
 /** The model families Misty's speech pipeline runs (sherpa-onnx, `voice_speech` in misty's `src-tauri`). */
 export const HEARING_FAMILIES = new Set(["nemo_transducer", "qwen3_asr", "whisper", "moonshine", "omnilingual_ctc"]);
-export const VOICE_FAMILIES = new Set(["kokoro"]);
 /** Where every speech package comes from: sherpa-onnx's own conversions of the makers' models. */
 const MODEL_RELEASES = "https://github.com/k2-fsa/sherpa-onnx/releases/download/";
 /** The most one speech package may be. */
@@ -312,7 +357,7 @@ function filesProblems(entry, need) {
   }
 }
 
-/** Problems with one speech entry (`hearing`, `voices` or `support`), as sentences. */
+/** Problems with one speech entry (`hearing` or `support`), as sentences. */
 export function speechProblems(entry, group) {
   const problems = [];
   const need = (ok, text) => ok || problems.push(`speech/${group}/${entry?.id ?? "?"}: ${text}`);
@@ -334,22 +379,13 @@ export function speechProblems(entry, group) {
   );
   need(Number.isInteger(entry?.disk_mb) && entry.disk_mb > 0, "disk_mb must be its size unpacked");
   need(Number.isInteger(entry?.memory_mb) && entry.memory_mb > 0, "memory_mb must be what it takes to run");
-  if (group === "hearing") {
-    need(HEARING_FAMILIES.has(entry?.family), `family ${JSON.stringify(entry?.family)} isn't one Misty runs`);
-    need(typeof entry?.description === "string" && entry.description.length <= 80, "needs a short description");
-    need(typeof entry?.detects_language === "boolean", "detects_language must be true or false");
-    need(typeof entry?.words === "boolean", "words must say whether it times each word");
-    need([1, 2, 3].includes(entry?.accuracy) && [1, 2, 3].includes(entry?.speed), "accuracy and speed are 1 to 3");
-  } else {
-    need(VOICE_FAMILIES.has(entry?.family), `family ${JSON.stringify(entry?.family)} isn't one Misty runs`);
-    need(entry?.gender === "female" || entry?.gender === "male", "gender is as the model states it, female or male");
-    need(Number.isInteger(entry?.speaker) && entry.speaker >= 0, "speaker must be the model's speaker id");
-    if (entry?.sample !== undefined) {
-      blobProblems(entry.sample, need, "sample", MAX_SAMPLE_BYTES, ["url", "sha256", "size", "type"]);
-      need(SAMPLE_TYPES.has(entry.sample?.type), "sample type must be audio/mpeg or audio/wav");
-    }
-  }
-  if (group !== "voices") need(entry?.sample === undefined, "only a voice has a sample");
+  need(group === "hearing", `speech/${group} isn't a kind Misty lists`);
+  need(HEARING_FAMILIES.has(entry?.family), `family ${JSON.stringify(entry?.family)} isn't one Misty runs`);
+  need(typeof entry?.description === "string" && entry.description.length <= 80, "needs a short description");
+  need(typeof entry?.detects_language === "boolean", "detects_language must be true or false");
+  need(typeof entry?.words === "boolean", "words must say whether it times each word");
+  need([1, 2, 3].includes(entry?.accuracy) && [1, 2, 3].includes(entry?.speed), "accuracy and speed are 1 to 3");
+  need(entry?.sample === undefined, "a speech model has no sample");
   return problems;
 }
 
