@@ -1622,6 +1622,66 @@
       ]
     },
     {
+      "id": "voicebox",
+      "name": "Voicebox",
+      "description": "Local voices for Misty and its agents: preset, designed or cloned",
+      "maker": "Jamie Pine",
+      "upstream": "jamiepine/voicebox",
+      "license": "MIT",
+      "version": "0.6.0",
+      "tag": "0.6.0",
+      "commit": "7b570438da7565e849ec08b16a469339985eaf8c",
+      "built": true,
+      "url": "https://registry.mistysys.com/apps/voicebox-web-0.6.0-b41a94f2f1de.zip",
+      "sha256": "f5b44d2d47f342ac88d01308936e4bde8efed119e30fb70ce15595952c58ecc9",
+      "size": 4783271,
+      "logo": "https://raw.githubusercontent.com/jamiepine/voicebox/7b570438da7565e849ec08b16a469339985eaf8c/tauri/src-tauri/icons/128x128@2x.png",
+      "permissions": [],
+      "manifest": {
+        "name": "Voicebox",
+        "logo": "logo.png",
+        "entry": "index.html",
+        "opens": [],
+        "own_origin": true,
+        "inline_scripts": false,
+        "shim": true,
+        "network": [],
+        "permissions": [],
+        "server": true
+      },
+      "server_program": {
+        "program": "voicebox-server",
+        "args": [
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "{port}",
+          "--data-dir",
+          "{data}",
+          "--parent-pid",
+          "{parent}"
+        ],
+        "ready": "Uvicorn running on",
+        "env": {
+          "VOICEBOX_CORS_ORIGINS": "misty-app://voicebox"
+        },
+        "builds": {
+          "macos-aarch64": {
+            "url": "https://github.com/jamiepine/voicebox/releases/download/v0.6.0/Voicebox_aarch64.app.tar.gz",
+            "sha256": "ea7c9096ff03aa0da86b769d554f2f48a7c2dee7625ceb131814886b805d3119",
+            "size": 644109016
+          },
+          "macos-x86_64": {
+            "url": "https://github.com/jamiepine/voicebox/releases/download/v0.6.0/Voicebox_x64.app.tar.gz",
+            "sha256": "cdac3afaeece2cbb76d14ad98f22ff3b531fdd4f163111aa8b55ac76c02f7968",
+            "size": 588603581
+          }
+        }
+      },
+      "add_copies": [],
+      "strip_top": false
+    },
+    {
       "id": "wordcraft",
       "name": "WordCraft",
       "description": "Open-source word processor",
