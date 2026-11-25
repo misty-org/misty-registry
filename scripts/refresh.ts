@@ -61,33 +61,6 @@ function versioned(manifest, version) {
   return { ...manifest, entry: manifest.entry.replaceAll("{version}", version) };
 }
 
-function site(config) {
-  const adapter = config.adapter ? join(root, "apps", config.id, config.adapter) : null;
-  if (adapter && !existsSync(adapter)) throw new Error(`${config.id}: apps/${config.id}/${config.adapter} is missing`);
-  const entry = {
-    kind: "site",
-    id: config.id,
-    name: config.name,
-    description: config.description,
-    maker: config.maker,
-    version: config.version,
-    address: config.address,
-    origins: config.origins,
-    logo: config.icon,
-    ...(config.icon_render ? { icon_render: config.icon_render } : {}),
-    platforms: config.platforms,
-    media: config.media,
-    permissions: config.manifest.permissions,
-    manifest: config.manifest,
-    ...(adapter ? { adapter: scriptFile(adapter) } : {}),
-    add_copies: [],
-    strip_top: false,
-  };
-  const problems = entryProblems(entry);
-  if (problems.length) throw new Error(problems.join("\n"));
-  return entry;
-}
-
 const BUILDS_URL = (process.env.REGISTRY_BUILDS_URL ?? "").replace(/\/+$/, "");
 
 async function releaseBuilds(upstream, release, names) {
@@ -162,7 +135,6 @@ async function built(config) {
 }
 
 async function pin(listed) {
-  if (listed.kind === "site") return site(listed);
   if (listed.build) return built(listed);
   const config = await withMakersManifest(listed);
   const response = await fetch(`https://api.github.com/repos/${config.upstream}/releases/latest`, { headers });

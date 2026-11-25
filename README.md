@@ -1,8 +1,8 @@
 # misty-registry
 
 The reviewed apps Misty lists in Explore, under the MIT license. A person installs an app on their own computer,
-where it opens in whichever Space their window shows. Misty makes no apps of its own, and an app is one of two
-things, never a pasted address:
+where it opens in whichever Space their window shows. Misty makes no apps of its own, and an app is a web build, never a pasted
+address and never a website (a website opens in Misty's browser):
 
 - **An open-source web build:** a maker's own release, which a person gets from Explore once it is listed here.
   Each entry names the maker's own repository, the version it is
@@ -17,10 +17,6 @@ things, never a pasted address:
   `registry.mistysys.com/apps/`, pinned by its checksum like any other. A zip is uploaded once and never
   replaced: its name carries the recipe's version and a fingerprint of its files, so any change to a recipe is a
   new zip under a new name.
-- **A reviewed website entry** (`kind: "site"`): a site that already works as an app, opened at its own address in
-  the person's apps sign-in on their computer. It lands only by reviewed pull request here, as Discord's Activities
-  come only from registered developers. Explore stays a store: a website that isn't an app is for the person's own
-  browser, or an agent's.
 
 **The repository holds no app and no binary.** The registry hosts every app's zip, the ones it builds and an
 unchanged copy of each maker's release, served beside the signed registry and never committed. A program an app's MCP
@@ -55,7 +51,7 @@ server runs (`mcp_program`) is still the maker's own release asset, downloaded f
   uploads a zip by hand.
 - Adapters (`adapters/*.js`, `apps/<id>/*.js`, `builds/<id>/adapter.js`) are never copied into the registry. An entry
   names each by its checksum, `{ url, sha256, size }` at `registry.mistysys.com/files/<sha256>.js`; publish uploads
-  them (`scripts/ship_files.ts`), and Misty fetches one when it installs the app or opens the site, checks it and
+  them (`scripts/ship_files.ts`), and Misty fetches one when it installs the app, checks it and
   keeps it. The checks fail when a pin names a script no file here has: run refresh for that app.
 - `pins.json`: each app's pin, written by `scripts/refresh.ts`; the index's `apps` come from it. A built app is pinned there once its zip is hosted
   (`REGISTRY_BUILDS_URL`); a local build's pin, with a `file:` address, goes to `work/apps.local.json` instead. A
@@ -101,7 +97,7 @@ Where everything comes from:
 
 | Kind | What | Where it comes from |
 | --- | --- | --- |
-| `apps` | open-source web builds and reviewed websites | picked by hand (`apps/<id>.json`), pinned by `refresh` |
+| `apps` | open-source web builds | picked by hand (`apps/<id>.json`), pinned by `refresh` |
 | `plugins` | bundles of skills, agents, commands, hooks or tools, with what each `includes` | the sources' marketplaces |
 | `skills` | a folder with a `SKILL.md` | the sources |
 | `templates` | ready-made instructions to start an agent from | the sources |
@@ -185,33 +181,6 @@ Anyone can submit an app, or an integration for one, as a pull request here:
    `collab: "adapter"` when the adapter does that for an app that can't, with Misty's copy of `@misty/sdk`
    (`window.MistySDK`) loaded before it.
 3. Run `npm run refresh <id>` and `npm run check`. Licenses must be OSI-approved; source-available ones aren't taken.
-
-## Website apps
-
-`apps/<id>.json` with `kind: "site"` describes a website app, and an optional adapter sits beside it as
-`apps/<id>/<adapter>`:
-
-- `address`: the https page it opens at; `origins`: the https origins it may stay within (`https://*.example.com`
-  for a domain's hosts). Anything else, and every new window, opens in the person's own browser.
-- `icon`: the maker's own icon, on one of its origins, with `icon_render` as for a web build. `platforms`: where it was checked to play, and `media` for
-  each of them: `{ "drm": false }`. Misty's webviews carry no Widevine, so a site that needs it isn't listed there.
-- `version`: the adapter's version; `manifest`: its `name`, `permissions` (as an app's), `platforms` and `mcp:
-  "adapter"` when it has an adapter.
-- `adapter`: a script Misty loads into the running site in an isolated world of its own, on macOS, with Misty's
-  copy of `@misty/sdk` (`window.MistySDK`) before it. Only the adapter reaches the Space (`mistyAdapterHost.connect()`
-  gives it the SDK's client); the site's own scripts never see it. It sets `window.mistyAdapter` (`tools` and
-  `call`) for agents' tools. On Windows, where WebView2 has no isolated world, a website app gets no Space features.
-
-There is nothing to pin: refresh carries the entry as it is, naming its adapter by address and checksum
-(`adapter`), which the registry's signature covers. Nobody's session is shared or sent anywhere: each person signs in on their own computer.
-YouTube Music is the first with an adapter: what's playing, play, pause, skip and the queue for agents, and listening
-together over the Space's live room, where whoever plays, pauses or skips leads.
-
-The others are listed as they are, with no adapter yet: Figma, Canva, Photopea, Miro and tldraw for design; Notion,
-Google Docs, Sheets and Slides, Trello, Linear and Airtable for work; YouTube and Twitch to watch; Lichess, Gartic
-Phone and skribbl.io to play. Each one's `origins` hold its own hosts and the sign-in pages it sends people to (Google,
-Apple, Microsoft, Atlassian), and Cloudflare's check for the sites behind it, since a frame the page loads is held to
-the same origins as the page.
 
 ## Speech models and engines
 

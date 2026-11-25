@@ -126,23 +126,6 @@ function serverProblems(app, upstream) {
   return problems;
 }
 
-const SITE_PLATFORMS = new Set(["macos", "windows", "linux"]);
-const ORIGIN = /^https:\/\/(\*\.)?[a-z0-9-]+(\.[a-z0-9-]+)+$/;
-
-export function originAllows(origin, address) {
-  let url;
-  try {
-    url = new URL(address);
-  } catch {
-    return false;
-  }
-  if (url.protocol !== "https:" || url.port || url.username) return false;
-  const allowed = origin.slice("https://".length);
-  if (!allowed.startsWith("*.")) return url.hostname === allowed;
-  const domain = allowed.slice(1);
-  return url.hostname.endsWith(domain) && url.hostname.length > domain.length;
-}
-
 export const SCRIPTS_ORIGIN = "https://registry.mistysys.com/files/";
 /** Where every blob is served: a file named by the sha256 of its exact bytes, uploaded once and never replaced. */
 export const BLOBS_ORIGIN = "https://registry.mistysys.com/blobs/";
@@ -191,41 +174,6 @@ function scriptProblems(file, need, what, { local = false } = {}) {
   need(!("content" in (file ?? {})), `${what} carries no source: Misty fetches it by its checksum`);
 }
 
-function siteProblems(app) {
-  const problems = [];
-  const need = (ok, text) => ok || problems.push(`${app?.id ?? "?"}: ${text}`);
-  need(typeof app?.id === "string" && ID.test(app.id), "id must be lowercase letters, digits and hyphens");
-  need(typeof app?.name === "string" && app.name.trim() !== "", "needs a name");
-  need(app?.description === undefined || (typeof app.description === "string" && app.description.length <= 200), "description must be a short line");
-  need(typeof app?.maker === "string" && app.maker.trim() !== "", "needs a maker, who is credited in the directory");
-  need(typeof app?.version === "string" && VERSION.test(app.version), "version must be one folder name: the adapter's version");
-  const origins = Array.isArray(app?.origins) ? app.origins : [];
-  need(origins.length > 0 && origins.length <= 32 && origins.every((origin) => typeof origin === "string" && ORIGIN.test(origin)), "origins must be https origins, a leading *. for a domain's hosts");
-  need(typeof app?.address === "string" && origins.some((origin) => originAllows(origin, app.address)), "address must be an https page on one of its origins");
-  need(
-    app?.logo !== undefined && mirroredPicture(app, "logo", (url) => typeof url === "string" && origins.some((origin) => originAllows(origin, url))),
-    "logo must be the maker's own icon, on one of its origins",
-  );
-  need(
-    app?.icon_render === undefined || ["theme", "color", "plate-dark", "plate-light"].includes(app.icon_render),
-    "icon_render must be theme, color, plate-dark or plate-light",
-  );
-  const platforms = Array.isArray(app?.platforms) ? app.platforms : [];
-  need(platforms.length > 0 && platforms.every((platform) => SITE_PLATFORMS.has(platform)), "platforms must list where it was checked to play");
-  for (const platform of platforms) need(app?.media?.[platform]?.drm === false, `media.${platform} must say it plays without DRM there`);
-  need(
-    Array.isArray(app?.permissions) && app.permissions.every((p) => PERMISSIONS.has(p)) && new Set(app.permissions).size === app.permissions.length,
-    "permissions must be known and listed once",
-  );
-  need(app?.manifest?.name === app?.name, "manifest name is the app's name");
-  need(JSON.stringify(app?.manifest?.permissions) === JSON.stringify(app?.permissions), "manifest permissions match the entry's");
-  need(app?.manifest?.mcp !== "adapter" || app?.adapter !== undefined, "an adapter site names its adapter");
-  if (app?.adapter !== undefined) scriptProblems(app.adapter, need, "adapter");
-  need(!("adapter_source" in (app ?? {})), "an adapter is a file on the registry's address, never source in the entry");
-  need(!("url" in (app ?? {})) && !("sha256" in (app ?? {})) && !("upstream" in (app ?? {})), "a website app pins no release: it is the maker's own live site");
-  return problems;
-}
-
 /** Problems with one registry entry, as sentences. An empty list means it is fit to ship. */
 export const BUILDS_ORIGIN = "https://registry.mistysys.com/apps/";
 
@@ -236,7 +184,6 @@ export const BUILDS_ORIGIN = "https://registry.mistysys.com/apps/";
 export const mirrorName = (id, version, sha256) => `${id}-${version}-${String(sha256).slice(0, 12)}.zip`;
 
 export function entryProblems(app, { local = false } = {}) {
-  if (app?.kind === "site") return siteProblems(app);
   const problems = [];
   const need = (ok, text) => ok || problems.push(`${app?.id ?? "?"}: ${text}`);
   const upstream = typeof app?.upstream === "string" ? app.upstream : "";

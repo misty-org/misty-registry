@@ -18,7 +18,7 @@ mkdirSync(folder, { recursive: true });
 
 let failed = false;
 for (const app of pins) {
-  if (app.kind === "site" || app.built || !app.source) continue;
+  if (app.built || !app.source) continue;
   if (wanted.length && !wanted.includes(app.id)) continue;
   try {
     if (!app.url.startsWith(BUILDS_ORIGIN)) throw new Error(`${app.url} isn't on ${BUILDS_ORIGIN}`);
