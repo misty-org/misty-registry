@@ -45,16 +45,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm run build
       - run: npm run check
-      - name: Commit the new pins
-        run: |
-          set -euo pipefail
-          if git diff --quiet -- pins.json; then echo "Every built app's pin is current."; exit 0; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pins.json
-          git commit -m "chore(registry): pin the apps the registry built"
-          git pull --rebase origin main
-          git push origin HEAD:main
       - name: Upload the scripts the registry names
         run: node scripts/ship_files.ts
       - name: Read the sources for plugins, skills and agent templates

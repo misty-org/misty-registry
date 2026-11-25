@@ -1,13 +1,12 @@
 name: refresh
-# Moves each app's pin to its maker's latest release and opens a pull request. Once it is merged, publish.yml signs
-# the registry and every Misty picks it up within a day.
+# Finds the makers' newer releases and lists the pin changes in the run's summary. Nothing is committed: run
+# `node scripts/refresh.ts` and commit pins.json yourself, then publish.yml signs the registry.
 on:
   workflow_dispatch:
   schedule:
     - cron: "17 6 * * *"
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -21,18 +20,8 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm run build
       - run: npm run check
-      - name: Open the pull request
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: List the pin changes
         run: |
           set -euo pipefail
-          if git diff --quiet pins.json; then echo "Every pin and source is current."; exit 0; fi
-          branch="refresh/$(date -u +%Y-%m-%d)"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$branch"
-          git add pins.json
-          git commit -m "Move pins to the makers' latest releases"
-          git push origin "$branch"
-          gh pr create --base main --title "Move pins to the makers' latest releases" \
-            --body "Each pin now names the maker's own release asset and its checksum. Check an app opens a file and saves back before merging."
+          if git diff --quiet pins.json; then echo "Every pin and source is current." >> "$GITHUB_STEP_SUMMARY"; exit 0; fi
+          { echo "Pins to move. Run \`node scripts/refresh.ts\` and commit pins.json."; echo; echo '```diff'; git diff pins.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
