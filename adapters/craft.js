@@ -221,6 +221,7 @@
   HTMLInputElement.prototype.click = function () {
     var input = this;
     if (input.type !== "file" || !misty) return originalInputClick.apply(input, arguments);
+    if (window.mistyScreen && window.mistyScreen.agentActing()) return originalInputClick.apply(input, arguments);
     var accept = (input.accept || "").split(",").map(function (kind) { return kind.trim(); }).filter(Boolean);
     misty.files
       .pick({ accept: accept, multiple: input.multiple })
@@ -309,22 +310,28 @@
     return [
       {
         name: "commands",
-        description: "List " + label + "'s commands: each one's id, label, where it is in the app, its shortcut, the params it takes and whether it is enabled now. Pass search to narrow the list. Run one with execute.",
+        description: "List " + label + "'s commands, each one's id, label and whether it is enabled now. Pass search to narrow the list and see each match's place in the menus, shortcut and the params it takes. Run one with execute.",
         inputSchema: {
           type: "object",
-          properties: { search: { type: "string", description: "Words to narrow the list by." } },
+          properties: { search: { type: "string", description: "Words to narrow the list by, such as picture or align." } },
           additionalProperties: false,
         },
         annotations: { readOnlyHint: true },
       },
       {
         name: "execute",
-        description: "Run one of " + label + "'s commands in the open document, as its menus do: an id from commands and its params. Read the document with inspect_document before and after a change. Saving writes the file back into the Space.",
+        description: "Run one of " + label + "'s commands in the open document, as its menus do: an id from commands and its params. A command that takes a file (a path or base64 data, such as insert.picture) takes it as file instead: a file in your working folder, which Misty hands to the app, so never put a file's data in params. Read the document with inspect_document before and after a change. Saving writes the file back into the Space.",
         inputSchema: {
           type: "object",
           properties: {
             command: { type: "string", description: "The command's id, from commands." },
-            params: { type: "object", description: "The command's params, as commands lists them." },
+            params: { type: "object", description: "The command's params, as commands lists them, without path or data." },
+            file: { type: "string", format: "misty-file", description: "A file in your working folder, for a command that takes one." },
+            files: {
+              type: "array",
+              items: { type: "string", format: "misty-file" },
+              description: "Files in your working folder, for a command that takes several (such as insert.photoAlbum's pictures), in order.",
+            },
             doc: { type: "number", description: "Which open document, from inspect_ui's documents; the active one when left out." },
           },
           required: ["command"],
@@ -354,17 +361,97 @@
     ];
   }
 
-  function call(name, args) {
+  function base64Of(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var url = String(reader.result || "");
+        resolve(url.slice(url.indexOf(",") + 1));
+      };
+      reader.onerror = function () { reject(reader.error || new Error("Misty couldn't read " + file.name + ".")); };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function isFile(value) {
+    return typeof Blob === "function" && value instanceof Blob;
+  }
+
+  function withFiles(params, file, files) {
+    var next = object(params);
+    var copy = {};
+    for (var key in next) copy[key] = next[key];
+    var many = Array.isArray(files) ? files.filter(isFile) : [];
+    var jobs = [];
+    if (isFile(file)) {
+      jobs.push(base64Of(file).then(function (data) {
+        delete copy.path;
+        copy.data = data;
+        if (typeof copy.name !== "string" || !copy.name) copy.name = file.name;
+      }));
+    }
+    if (many.length) {
+      var pictures = Array.isArray(copy.pictures) ? copy.pictures.slice() : [];
+      copy.pictures = pictures;
+      many.forEach(function (one, index) {
+        jobs.push(base64Of(one).then(function (data) {
+          var entry = {};
+          var given = object(pictures[index]);
+          for (var key in given) entry[key] = given[key];
+          delete entry.path;
+          entry.data = data;
+          if (typeof entry.name !== "string" || !entry.name) entry.name = one.name;
+          pictures[index] = entry;
+        }));
+      });
+    }
+    return Promise.all(jobs).then(function () { return copy; });
+  }
+
+  function shortList(listed) {
+    var rows = Array.isArray(listed) ? listed : listed && Array.isArray(listed.commands) ? listed.commands : null;
+    if (!rows) return listed;
+    var short = rows.map(function (row) {
+      var item = object(row);
+      return { id: item.id, label: item.label, enabled: item.enabled };
+    });
+    return Array.isArray(listed) ? short : Object.assign({}, listed, { commands: short });
+  }
+
+  function menuPath(page, command) {
+    return Promise.resolve(page.request("engine.commands", { search: command }))
+      .then(function (listed) {
+        var rows = Array.isArray(listed) ? listed : listed && Array.isArray(listed.commands) ? listed.commands : [];
+        var found = rows.filter(function (row) { return object(row).id === command; })[0];
+        if (!found) return command;
+        var label = String(found.label || command).replace(/[.…]+$/, "");
+        return (Array.isArray(found.menu) ? found.menu : []).concat([label]).join(" › ");
+      })
+      .catch(function () { return command; });
+  }
+
+  function call(name, args, context) {
     var input = object(args);
     var page = needApi();
+    var point = context && typeof context.point === "function" ? context.point : null;
     switch (name) {
-      case "commands":
-        return page.request("engine.commands", typeof input.search === "string" && input.search ? { search: input.search } : {});
+      case "commands": {
+        var search = typeof input.search === "string" && input.search ? input.search : "";
+        var listed = page.request("engine.commands", search ? { search: search } : {});
+        return search ? listed : Promise.resolve(listed).then(shortList);
+      }
       case "execute": {
         if (typeof input.command !== "string" || !input.command) throw new Error("Name the command to run, from commands.");
-        var params = { command: input.command, params: object(input.params) };
-        if (typeof input.doc === "number") params.doc = input.doc;
-        return page.request("engine.execute", params);
+        var shown = point
+          ? menuPath(page, input.command).then(function (doing) { point(canvas, doing); })
+          : Promise.resolve();
+        return shown.then(function () {
+          return withFiles(input.params, input.file, input.files);
+        }).then(function (params) {
+          var request = { command: input.command, params: params };
+          if (typeof input.doc === "number") request.doc = input.doc;
+          return page.request("engine.execute", request);
+        });
       }
       case "inspect_document": {
         var query = {};
@@ -381,10 +468,36 @@
     }
   }
 
-  var adapter = { call: call };
-  Object.defineProperty(adapter, "tools", {
-    enumerable: true,
-    get: function () { return api() ? toolList() : []; },
-  });
-  window.mistyAdapter = adapter;
+  var registered = false;
+
+  function offerTools() {
+    var context = document.modelContext;
+    if (registered || !api() || !context || typeof context.registerTool !== "function") return;
+    registered = true;
+    toolList().forEach(function (tool) {
+      context.registerTool({
+        name: tool.name,
+        description: tool.description,
+        inputSchema: tool.inputSchema,
+        annotations: tool.annotations,
+        execute: function (input, options) { return call(tool.name, input, options); },
+      }).catch(function () {});
+    });
+  }
+
+  if (document.modelContext && typeof document.modelContext.registerTool === "function") {
+    window.addEventListener("TrunkApplicationStarted", offerTools);
+    if (canvas) canvas.addEventListener(app + ":ready", offerTools);
+    else document.addEventListener("readystatechange", function () {
+      if (canvas) canvas.addEventListener(app + ":ready", offerTools);
+    });
+    offerTools();
+  } else {
+    var adapter = { call: call };
+    Object.defineProperty(adapter, "tools", {
+      enumerable: true,
+      get: function () { return api() ? toolList() : []; },
+    });
+    window.mistyAdapter = adapter;
+  }
 })();

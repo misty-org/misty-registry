@@ -1726,5 +1726,19 @@
     }
   }
 
-  window.mistyAdapter = { tools: tools, call: call };
+  var context = document.modelContext;
+  if (context && typeof context.registerTool === "function") {
+    tools.forEach(function (tool) {
+      context.registerTool({
+        name: tool.name,
+        title: tool.title,
+        description: tool.description,
+        inputSchema: tool.inputSchema,
+        annotations: tool.annotations,
+        execute: function (input, options) { return call(tool.name, input, options || {}); },
+      }).catch(function () {});
+    });
+  } else {
+    window.mistyAdapter = { tools: tools, call: call };
+  }
 })();
