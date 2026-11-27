@@ -40,9 +40,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/56cc920ef010a9ae2f5e693418cff2ff61c047b66c357083e220f3d8618a5186.js",
-          "sha256": "56cc920ef010a9ae2f5e693418cff2ff61c047b66c357083e220f3d8618a5186",
-          "size": 6915
+          "url": "https://registry.mistysys.com/files/8f1c74790f388ea502243aaa83dcca71ff4966363cdd871b09964ac058ab7987.js",
+          "sha256": "8f1c74790f388ea502243aaa83dcca71ff4966363cdd871b09964ac058ab7987",
+          "size": 7402
         }
       ]
     },
@@ -87,9 +87,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -134,9 +134,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -173,9 +173,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/65054c297881d62311c01626941e1c5ddd5eff598194d36d5f2c7c6fc819ed0b.js",
-          "sha256": "65054c297881d62311c01626941e1c5ddd5eff598194d36d5f2c7c6fc819ed0b",
-          "size": 6981
+          "url": "https://registry.mistysys.com/files/5de42118ab10bd0dcdb2aa1e589066ac6e9bac3e2fc67aba2098865ae2ce921d.js",
+          "sha256": "5de42118ab10bd0dcdb2aa1e589066ac6e9bac3e2fc67aba2098865ae2ce921d",
+          "size": 7468
         }
       ]
     },
@@ -186,13 +186,13 @@
       "maker": "storytold",
       "upstream": "storytold/deckcraft",
       "license": "MIT OR Apache-2.0",
-      "version": "0.18.1",
-      "tag": "v0.18.1",
-      "source": "https://github.com/storytold/deckcraft/releases/download/v0.18.1/deckcraft-web-0.18.1.zip",
-      "url": "https://registry.mistysys.com/apps/deckcraft-0.18.1-3196e537fcfa.zip",
-      "sha256": "3196e537fcfab538aaa2e88584bc74e29bb584459b916ab584ac22fbafe32db5",
-      "size": 11910503,
-      "logo": "https://raw.githubusercontent.com/storytold/deckcraft/v0.18.1/assets/app-icon/hicolor/256x256/apps/ai.storyteller.deckcraft.png",
+      "version": "0.19.1",
+      "tag": "v0.19.1",
+      "source": "https://github.com/storytold/deckcraft/releases/download/v0.19.1/deckcraft-web-0.19.1.zip",
+      "url": "https://registry.mistysys.com/apps/deckcraft-0.19.1-28fcde83be9e.zip",
+      "sha256": "28fcde83be9e5b3020c05af980c252c8ef4d21b4717baaf04efde20f7dc5bf86",
+      "size": 12463655,
+      "logo": "https://raw.githubusercontent.com/storytold/deckcraft/v0.19.1/assets/app-icon/hicolor/256x256/apps/ai.storyteller.deckcraft.png",
       "permissions": [
         "files"
       ],
@@ -220,9 +220,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -267,9 +267,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -280,13 +280,13 @@
       "maker": "JGraph",
       "upstream": "jgraph/drawio",
       "license": "Apache-2.0",
-      "version": "32.7.4",
-      "tag": "v32.7.4",
-      "source": "https://github.com/jgraph/drawio/releases/download/v32.7.4/draw.war",
-      "url": "https://registry.mistysys.com/apps/drawio-32.7.4-caf784637155.zip",
-      "sha256": "caf784637155f444e0b6fb7c154cae5dbad27cfc31cb16286054d43f996be42f",
-      "size": 51194251,
-      "logo": "https://raw.githubusercontent.com/jgraph/drawio/v32.7.4/src/main/webapp/images/drawlogo256.png",
+      "version": "32.7.7",
+      "tag": "v32.7.7",
+      "source": "https://github.com/jgraph/drawio/releases/download/v32.7.7/draw.war",
+      "url": "https://registry.mistysys.com/apps/drawio-32.7.7-e84ac13ee1e6.zip",
+      "sha256": "e84ac13ee1e6c2bded36b6e920a2e8abfa37df277a6d9697ae8dc28f7bbeb9f1",
+      "size": 52888867,
+      "logo": "https://raw.githubusercontent.com/jgraph/drawio/v32.7.7/src/main/webapp/images/drawlogo256.png",
       "permissions": [
         "files",
         "rooms"
@@ -317,9 +317,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/6bd214182ca4cd024bae58b6bfd1e058c3a5b11093dadf2b09bcee1077e7a2c0.js",
-          "sha256": "6bd214182ca4cd024bae58b6bfd1e058c3a5b11093dadf2b09bcee1077e7a2c0",
-          "size": 62092
+          "url": "https://registry.mistysys.com/files/d23f8a89d2b9faa079767ef46945fa2206de1b7768f0751a7190188ea846206c.js",
+          "sha256": "d23f8a89d2b9faa079767ef46945fa2206de1b7768f0751a7190188ea846206c",
+          "size": 62579
         }
       ]
     },
@@ -366,9 +366,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -453,9 +453,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -502,9 +502,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -549,9 +549,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -598,9 +598,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -645,9 +645,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -695,9 +695,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/b5ead1bf33aaa0d72ae5a1860d6de9630239a6896f461576368ed3dade1deaa4.js",
-          "sha256": "b5ead1bf33aaa0d72ae5a1860d6de9630239a6896f461576368ed3dade1deaa4",
-          "size": 7940
+          "url": "https://registry.mistysys.com/files/70d7e96d4fe8c02589785dbdf09ba88e25579b918074852465ee88f05af04ba2.js",
+          "sha256": "70d7e96d4fe8c02589785dbdf09ba88e25579b918074852465ee88f05af04ba2",
+          "size": 8427
         }
       ]
     },
@@ -744,9 +744,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -793,9 +793,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/14116d1a942671ed1b7f3e0e5a580a5894b2cbbce42fbe174dab10a3a1035336.js",
-          "sha256": "14116d1a942671ed1b7f3e0e5a580a5894b2cbbce42fbe174dab10a3a1035336",
-          "size": 9514
+          "url": "https://registry.mistysys.com/files/4d9f8e35435b0c9fbe860a143db538fa2d84dba180d58a326e4c561637ffa0c6.js",
+          "sha256": "4d9f8e35435b0c9fbe860a143db538fa2d84dba180d58a326e4c561637ffa0c6",
+          "size": 10001
         }
       ]
     },
@@ -843,9 +843,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -965,9 +965,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -1018,9 +1018,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/38ebdb1b05b22712e56070c389f06b8c5deafaf67eb401e706d7b185eec346c6.js",
-          "sha256": "38ebdb1b05b22712e56070c389f06b8c5deafaf67eb401e706d7b185eec346c6",
-          "size": 29380
+          "url": "https://registry.mistysys.com/files/bd637cdfa4ff46b94a86a5691207d92ea81c3002e0ff31416aba70435d8f3d98.js",
+          "sha256": "bd637cdfa4ff46b94a86a5691207d92ea81c3002e0ff31416aba70435d8f3d98",
+          "size": 29867
         }
       ]
     },
@@ -1067,9 +1067,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     },
@@ -1140,13 +1140,13 @@
       "maker": "storytold",
       "upstream": "storytold/wordcraft",
       "license": "MIT OR Apache-2.0",
-      "version": "0.18.1",
-      "tag": "v0.18.1",
-      "source": "https://github.com/storytold/wordcraft/releases/download/v0.18.1/wordcraft-web-0.18.1.zip",
-      "url": "https://registry.mistysys.com/apps/wordcraft-0.18.1-3daa7c2d1f20.zip",
-      "sha256": "3daa7c2d1f209a7eeb2527fcefa3fe31e875848fb1970d68f54edae55fe0bc9f",
-      "size": 22536015,
-      "logo": "https://raw.githubusercontent.com/storytold/wordcraft/v0.18.1/assets/app-icon/hicolor/256x256/apps/ai.storyteller.wordcraft.png",
+      "version": "0.19.1",
+      "tag": "v0.19.1",
+      "source": "https://github.com/storytold/wordcraft/releases/download/v0.19.1/wordcraft-web-0.19.1.zip",
+      "url": "https://registry.mistysys.com/apps/wordcraft-0.19.1-4124c4979e85.zip",
+      "sha256": "4124c4979e85619f00c12129b87164c841befeffafd752ab07cfe6ddc02a051a",
+      "size": 24860696,
+      "logo": "https://raw.githubusercontent.com/storytold/wordcraft/v0.19.1/assets/app-icon/hicolor/256x256/apps/ai.storyteller.wordcraft.png",
       "permissions": [
         "files"
       ],
@@ -1174,9 +1174,9 @@
       "add_files": [
         {
           "path": "misty/adapter.js",
-          "url": "https://registry.mistysys.com/files/bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1.js",
-          "sha256": "bf234811d2e8c28f99a3706e0138e6de5e895a78552d7126bee81f6c4aa8f3d1",
-          "size": 13903
+          "url": "https://registry.mistysys.com/files/f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5.js",
+          "sha256": "f4dcfb83ae0f08907eb7dee35fbf3c81db4fa9dea0afd37912e40b325dba90e5",
+          "size": 18856
         }
       ]
     }

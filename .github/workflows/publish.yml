@@ -14,8 +14,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
       - run: npm run check
@@ -27,8 +27,8 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
       REGISTRY_BUCKET: misty-registry
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
       - name: Build each app that isn't hosted yet and upload it
@@ -50,7 +50,7 @@ jobs:
       - name: Read the sources for plugins, skills and agent templates
         run: node scripts/crawl.ts --jobs 8
       - name: Restore what the last run made of the blobs
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: |
             work/bundles.json
@@ -69,7 +69,7 @@ jobs:
       - name: Copy each speech model into the blobs
         run: node scripts/mirror_speech.ts
       - name: Keep what this run made of the blobs
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: |
             work/bundles.json
